@@ -2,6 +2,7 @@
 
 @push('page_styles')
 	{!!Html::style('css/index.css')!!}
+	{!!Html::style('css/sindex.css')!!}
 @endpush
 
 @section('content')
