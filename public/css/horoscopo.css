@@ -1,0 +1,282 @@
+#h-ab {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.asc .ab-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.asc .at-container {
+    width: 100%;
+    margin-bottom: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.asc .at-container h3 {
+    width: auto;
+    padding: 5px 20px;
+    color: #ffffff;
+    background-color: #252947;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.asc .at-container h3 span {
+    margin-right: 0px;
+}
+
+@media screen and (min-width: 992px) {
+    .asc {
+        padding: 30px 40px;
+    }
+}
+
+.asc .at-container h3 span {
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.aintro-container {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    align-items: center;
+    padding: 6px;
+    background: #134d71;
+    background: linear-gradient(90deg, #134d71 0%, #00c8e5 50%, #00e5ce 100%);
+    margin-bottom: 60px !important;
+    position: relative;
+}
+@media screen and (min-width: 992px) {
+    .aintro-container {
+        width: 60% !important;
+    }
+}
+.aintro-container > div {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 35px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.aintro-container > div p {
+    width: 100% !important;
+    margin-top: 30px;
+}
+.aintro-container > div h3 {
+    width: 60%;
+    text-align: center;
+    font-size: 30px;
+    background-color: #1b1f36;
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #ffffff;
+    position: absolute;
+    top: -20px;
+}
+
+.asc {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.asc .at-container h3 span {
+    margin-right: 0px;
+}
+
+#h-ab {
+    flex-direction: column;
+}
+#h-ab #hdescription {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #hdescription {
+        padding: 0px 40px;
+    }
+}
+#h-ab #hdescription p {
+    text-align: center;
+}
+#h-ab #h-card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 90px;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+#h-ab #h-card-container .h-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    align-items: center;
+    position: relative;
+    padding: 6px;
+    background: #134d71;
+    background: linear-gradient(90deg, #134d71 0%, #00c8e5 50%, #00e5ce 100%);
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card {
+        height: 250px;
+        flex-direction: row;
+    }
+}
+#h-ab #h-card-container .h-card > div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 35px;
+    overflow: hidden;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div {
+        width: calc(100% - 8px);
+        height: calc(250px - 8px);
+        padding-left: 60px;
+    }
+}
+#h-ab #h-card-container .h-card > div #content-titel-horoscope {
+    background-color: #1b1f36;
+    border-radius: 15px;
+    padding: 5px 40px;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div #content-titel-horoscope {
+        position: absolute;
+        top: -10px;
+        right: 40px;
+    }
+}
+#h-ab #h-card-container .h-card > div #content-titel-horoscope h6 {
+    font-size: 25px;
+    color: #ffffff;
+}
+@media screen and (max-width: 992px) {
+    #h-ab #h-card-container .h-card > div .dcard {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div .dcard {
+        position: absolute;
+        left: -60px;
+        padding: 20px 0px;
+    }
+}
+#h-ab #h-card-container .h-card > div .dcard img {
+    width: 40%;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div .dcard img {
+        width: 80%;
+    }
+}
+#h-ab #h-card-container .h-card > div .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: auto;
+    margin-bottom: 15px;
+    position: relative;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div .card-content {
+        margin-right: 30px;
+    }
+}
+#h-ab #h-card-container .h-card > div .card-content > div {
+    width: 100%;
+    padding: 20px;
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div .card-content > div {
+        position: absolute;
+        top: 0px;
+    }
+}
+@media screen and (min-width: 992px) {
+    #h-ab #h-card-container .h-card > div .card-content {
+        width: 75%;
+    }
+}
+#h-ab #h-card-container .h-card > div .card-content h6 {
+    font-size: 24px;
+}
+#h-ab #h-card-container .h-card > div .card-content p {
+    text-align: justify;
+    font-size: 14px;
+}
+#h-ab #h-card-container .h-card > div .content-btn-hor > a {
+    padding: 5px 10px;
+    color: #252947;
+    background-color: #00e5e5;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    margin-top: 20px;
+}

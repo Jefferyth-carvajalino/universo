@@ -1,0 +1,376 @@
+@keyframes loading {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+.dropify-wrapper {
+	border: 1px solid #7c7c7c;
+}
+
+#perfil-container {
+	width: 100%;
+	height: 100%;
+	background-color: #f8f8f8;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+}
+@media screen and (min-width: 995px) {
+	#perfil-container {
+		padding: 20px;
+	}
+}
+#perfil-container > div {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+#perfil-container > div #information-account-container {
+	width: 100%;
+	padding: 35px 30px;
+	background-color: #ffffff;
+	border: 1px solid #ebebeb;
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+}
+@media screen and (min-width: 995px) {
+	#perfil-container > div #information-account-container {
+		width: 700px;
+		position: absolute;
+		top: 0px;
+		left: calc(50% - 350px);
+	}
+}
+#perfil-container > div #information-account-container h5 {
+	width: 100%;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+#perfil-container > div #information-account-container form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section {
+	width: 100%;
+	padding: 20px 0px 0px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #ebebeb;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section:not(:last-child) {
+	padding-bottom: 20px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field-s-title {
+	width: 100%;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field-s-title
+	h6 {
+	width: 100%;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field-s-title
+	p {
+	width: 100%;
+	color: #999999;
+	font-size: 14px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field-clearfix {
+	width: 100%;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field {
+	width: 100%;
+	margin-bottom: 15px;
+	padding-right: 15px;
+	position: relative;
+}
+@media screen and (min-width: 995px) {
+	#perfil-container
+		> div
+		#information-account-container
+		form
+		.form-field-section
+		.form-field {
+		width: 50%;
+	}
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	input:not([type="file"]) {
+	width: 100%;
+	margin-bottom: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7c7c7c;
+	border-radius: 2px;
+	padding: 15px 0px 3px 14px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	input:not([type="file"]):focus {
+	border-color: #0aaff1;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	textarea {
+	width: 100%;
+	height: 200px;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 200px;
+	max-height: 200px;
+	padding: 15px 0px 0px 14px;
+	resize: none;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	select {
+	width: 100%;
+	margin-bottom: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7c7c7c;
+	border-radius: 2px;
+	padding: 15px 0px 3px 14px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	select:focus {
+	border-color: #0aaff1;
+	outline: none;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	select
+	+ label {
+	font-size: 8.8px;
+	top: 3px;
+	left: 15px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	label {
+	width: auto;
+	color: #aeaeae;
+	pointer-events: none;
+	font-size: 14px;
+	position: absolute;
+	top: 9px;
+	left: 15px;
+	transition: all ease 0.2s;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	label.on-focus {
+	font-size: 8.8px;
+	top: 3px;
+	left: 15px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	.input-msg {
+	width: 100%;
+	min-height: 15px;
+	display: flex;
+	flex-direction: row;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-field-section
+	.form-field
+	.input-msg
+	p {
+	width: 100%;
+	padding-left: 5px;
+	color: #d93025;
+	font-size: 12px;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section {
+	width: 100%;
+	padding: 20px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+@media screen and (min-width: 995px) {
+	#perfil-container
+		> div
+		#information-account-container
+		form
+		.form-submit-section {
+		justify-content: flex-end;
+	}
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a {
+	margin-right: 20px;
+	padding: 14px 28px;
+	color: #ffffff;
+	border-radius: 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	transition: background-color ease-in-out 0.3s;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a.loading
+	span.fsbtn-icon {
+	display: flex;
+	animation: loading 0.5s linear 0s infinite normal;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a.fsbtn-secondary {
+	background-color: #707070;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a.fsbtn-secondary:hover {
+	background-color: #5c5c5c;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a.fsbtn-primary {
+	background-color: #0aaff1;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a.fsbtn-primary:hover {
+	background-color: #0893ca;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a
+	span.fsbtn-icon {
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+	display: none;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#perfil-container
+	> div
+	#information-account-container
+	form
+	.form-submit-section
+	a
+	span.fsbtn-text {
+	color: #ffffff;
+	text-align: center;
+}

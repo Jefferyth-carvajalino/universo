@@ -1,0 +1,270 @@
+#mis-ingresos-container {
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	background-color: #ffffff;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+}
+#mis-ingresos-container #mc-table-box {
+	width: 100%;
+}
+#mis-ingresos-container #mc-table-box .material-table-container {
+	width: 100%;
+}
+#mis-ingresos-container #mc-table-box .hiddensearch {
+	padding: 0 14px 0 24px;
+	border-bottom: 1px solid #dddddd;
+	display: none;
+}
+#mis-ingresos-container #mc-table-box .table-footer {
+	margin: 10px 0;
+	color: rgba(0, 0, 0, 0.54);
+	font-size: 12px !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+@media screen and (min-width: 992px) {
+	#mis-ingresos-container #mc-table-box .table-footer {
+		flex-direction: row;
+	}
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_length {
+	display: flex;
+	margin: 0 0 15px;
+}
+@media screen and (min-width: 992px) {
+	#mis-ingresos-container #mc-table-box .table-footer .dataTables_length {
+		margin: 0 auto 0 0;
+	}
+}
+#mis-ingresos-container #mc-table-box .table-footer .dt-buttons {
+	padding: 0 10px;
+	margin: 0 10px 0 0;
+}
+#mis-ingresos-container #mc-table-box .table-footer .dt-buttons button {
+	padding: 10px 24px;
+	color: #1a73e8;
+	cursor: pointer;
+	border: 1px solid #dadce0;
+	background-color: #ffffff;
+	border-radius: 4px;
+	transition: all ease 0.2s;
+}
+#mis-ingresos-container #mc-table-box .table-footer .dt-buttons button:hover {
+	background-color: rgba(66, 133, 244, 0.039);
+	border: 1px solid #d2e3fc;
+	box-shadow: 0 2px 1px -1px rgba(26, 115, 232, 0.2),
+		0 1px 1px 0 rgba(26, 115, 232, 0.141),
+		0 1px 3px 0 rgba(26, 115, 232, 0.122);
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_info {
+	margin: 0 0 10px;
+}
+@media screen and (min-width: 992px) {
+	#mis-ingresos-container #mc-table-box .table-footer .dataTables_info {
+		margin: 0 32px 0 0;
+	}
+}
+#mis-ingresos-container #mc-table-box .table-footer label {
+	color: rgba(0, 0, 0, 0.54);
+	font-size: 12px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#mis-ingresos-container #mc-table-box .table-footer label .input-field {
+	margin: 0;
+}
+#mis-ingresos-container #mc-table-box .table-footer .select-wrapper {
+	width: 60px;
+	margin: 0 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#mis-ingresos-container
+	#mc-table-box
+	.table-footer
+	.select-wrapper
+	input.select-dropdown {
+	margin: 0;
+	font-size: 12px;
+	text-align: center;
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_info,
+#mis-ingresos-container #mc-table-box .table-footer dataTables_length {
+	margin: 0 0 10px;
+}
+@media screen and (min-width: 992px) {
+	#mis-ingresos-container #mc-table-box .table-footer .dataTables_info,
+	#mis-ingresos-container #mc-table-box .table-footer dataTables_length {
+		margin: 0 32px 0 0;
+	}
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_paginate {
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_paginate a {
+	color: rgba(0, 0, 0, 0.54);
+}
+#mis-ingresos-container
+	#mc-table-box
+	.table-footer
+	.dataTables_paginate
+	a:not(:last-child) {
+	margin-right: 7px;
+}
+#mis-ingresos-container #mc-table-box .table-footer .dataTables_paginate span {
+	margin-right: 7px;
+}
+#mis-ingresos-container
+	#mc-table-box
+	.table-footer
+	.dataTables_paginate
+	span
+	a {
+	padding: 10px;
+	cursor: pointer;
+	transition: all ease 0.2s;
+}
+#mis-ingresos-container
+	#mc-table-box
+	.table-footer
+	.dataTables_paginate
+	span
+	a:hover {
+	background-color: #eeeeee;
+}
+#mis-ingresos-container #mc-table-box table {
+	table-layout: fixed;
+}
+#mis-ingresos-container #mc-table-box table th {
+	cursor: pointer;
+	vertical-align: middle;
+	outline: none !important;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	font-family: "Google Sans Regular", -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", Arial, sans-serif;
+	letter-spacing: 0.3px;
+	position: relative;
+}
+#mis-ingresos-container #mc-table-box table th.sorting {
+	color: #a3a3a3;
+}
+#mis-ingresos-container #mc-table-box table th.sorting::before {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	visibility: hidden;
+	word-wrap: normal;
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	content: "arrow_upward";
+	vertical-align: middle;
+}
+#mis-ingresos-container #mc-table-box table th.sorting:hover::before {
+	visibility: visible;
+}
+#mis-ingresos-container #mc-table-box table th.sorting_asc {
+	color: rgba(99, 99, 99, 0.87);
+}
+#mis-ingresos-container #mc-table-box table th.sorting_asc::before {
+	color: #7878f3;
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	word-wrap: normal;
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	content: "arrow_upward";
+	vertical-align: middle;
+}
+#mis-ingresos-container #mc-table-box table th.sorting_desc {
+	color: rgba(99, 99, 99, 0.87);
+}
+#mis-ingresos-container #mc-table-box table th.sorting_desc::before {
+	color: #7878f3;
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	word-wrap: normal;
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	content: "arrow_downward";
+	vertical-align: middle;
+}
+#mis-ingresos-container #mc-table-box table tbody tr:hover {
+	background-color: #f7f7f7;
+}
+#mis-ingresos-container #mc-table-box table tbody tr td {
+	padding-left: 21px;
+	cursor: default;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-family: "Roboto Regular", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial,
+		sans-serif;
+}
+#mis-ingresos-container #mc-table-box table tbody tr td a {
+	border-radius: 25px;
+}
+#mis-ingresos-container #mc-table-box table tbody tr td a:hover {
+	background-color: #ffffff;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+		0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.acs-i-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.acs-i-container span {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.acs-i-container span:not(:last-child) {
+	margin-right: 7px;
+}
+.acs-i-container span.checked svg path {
+	fill: #00e5e5;
+}
+.acs-i-container span svg {
+	width: 18px !important;
+	height: 18px !important;
+}
+.acs-i-container span svg path {
+	fill: #474b63;
+}

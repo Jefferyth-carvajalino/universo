@@ -1,0 +1,34 @@
+.nsc {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	flex-direction: column;
+	width: 100%;
+}
+.nsc > div:first-child img {
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+}
+.nsc > div:last-child {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+@media screen and (min-width: 992px) {
+	.nsc > div:last-child {
+		padding: 30px 40px;
+	}
+}
+.nsc > div:last-child h3 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+@media screen and (min-width: 992px) {
+	.nsc > div:last-child #new-html-container {
+		width: 80%;
+	}
+}

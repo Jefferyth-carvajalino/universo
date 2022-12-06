@@ -1,0 +1,259 @@
+@keyframes loading {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+.popup {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 110;
+}
+.popup.showing {
+	display: flex;
+}
+.popup .popup-container {
+	width: 90%;
+	max-height: 90%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+	border-radius: 20px;
+	padding: 20px;
+}
+@media screen and (min-width: 992px) {
+	.popup .popup-container {
+		width: 60%;
+	}
+}
+.popup .popup-container .btn-close-popup {
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 50%;
+	position: absolute;
+	right: 0px;
+	top: -50px;
+}
+@media screen and (min-width: 992px) {
+	.popup .popup-container .btn-close-popup {
+		top: -40px !important;
+		right: -50px !important;
+	}
+}
+.popup .popup-container .popup-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.popup .popup-container .popup-content > div:nth-child(1) {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+@media screen and (min-width: 992px) {
+	.popup .popup-container .popup-content > div:nth-child(1) {
+		flex-direction: row;
+	}
+}
+.popup .popup-container .popup-content > div:nth-child(1) > span {
+	font-size: 15px;
+	font-weight: bold;
+}
+@media screen and (min-width: 992px) {
+	.popup .popup-container .popup-content > div:nth-child(1) > span {
+		font-size: 20px;
+	}
+}
+.popup
+	.popup-container
+	.popup-content
+	> div:nth-child(1)
+	> span
+	> span:first-child {
+	color: #252947;
+	margin-right: 10px;
+}
+.popup
+	.popup-container
+	.popup-content
+	> div:nth-child(1)
+	> span
+	> span:last-child {
+	color: #00e5e5;
+	letter-spacing: 1px;
+}
+.popup .popup-container .popup-content > div:nth-child(2) {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.popup .popup-container .popup-content > div:nth-child(2) > textarea {
+	width: 99%;
+	height: 300px;
+	resize: none;
+	padding: 10px;
+	font-size: 15px;
+	border-radius: 10px;
+	background-color: #252947;
+	color: #ffffff;
+}
+@media screen and (min-width: 992px) {
+	.popup .popup-container .popup-content > div:nth-child(2) > textarea {
+		width: 80%;
+		font-size: 20px;
+	}
+}
+.popup
+	.popup-container
+	.popup-content
+	> div:nth-child(2)
+	> textarea::placeholder {
+	color: #e2e2e2;
+}
+.popup .popup-container .popup-content #content-btn-popup-answerhor {
+	width: 100%;
+	padding: 20px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.popup .popup-container .popup-content #content-btn-popup-answerhor > a {
+	width: auto !important;
+	padding: 5px 20px;
+	color: #252947;
+	background-color: #00e5e5;
+	border-radius: 20px;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+		0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+	text-decoration: none;
+}
+
+.dropify-wrapper {
+	border: 1px solid #7c7c7c;
+}
+
+.dshb-content-container {
+	display: flex;
+	flex-direction: column !important;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	padding: 50px 0px;
+}
+@media screen and (min-width: 992px) {
+	.dshb-content-container {
+		padding: 100px 0px;
+	}
+}
+.dshb-content-container > h4 {
+	color: #ffffff;
+	font-size: 30px;
+	text-align: center;
+}
+@media screen and (min-width: 992px) {
+	.dshb-content-container > h4 {
+		margin-bottom: 30px;
+		font-size: 40px;
+	}
+}
+
+#horoscope-container {
+	width: 100%;
+	height: 100%;
+	background-color: #f8f8f8;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: start;
+	align-items: flex-start;
+	background-image: url(/src/img/index/asesores-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: auto;
+}
+#horoscope-container > h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 50px;
+	color: #ffffff;
+}
+@media screen and (min-width: 995px) {
+	#horoscope-container {
+		padding: 20px;
+	}
+}
+#horoscope-container .content-solicitud-horoscope {
+	width: 100%;
+	height: 200px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	padding: 20px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+		0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 995px) {
+	#horoscope-container .content-solicitud-horoscope {
+		width: calc(100% / 4 - 20px);
+	}
+}
+#horoscope-container .content-solicitud-horoscope > span {
+	font-size: 15px;
+	font-weight: bold;
+}
+@media screen and (min-width: 995px) {
+	#horoscope-container .content-solicitud-horoscope > span {
+		font-size: 16px;
+	}
+}
+#horoscope-container .content-solicitud-horoscope > span > span:first-child {
+	color: #252947;
+	margin-right: 10px;
+}
+#horoscope-container .content-solicitud-horoscope > span > span:last-child {
+	color: #00e5e5;
+	letter-spacing: 1px;
+}
+#horoscope-container .content-solicitud-horoscope .content-btn-res-hor {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#horoscope-container .content-solicitud-horoscope .content-btn-res-hor > a {
+	padding: 5px 10px;
+	color: #252947;
+	background-color: #00e5e5;
+	border-radius: 20px;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+		0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+	text-decoration: none;
+}

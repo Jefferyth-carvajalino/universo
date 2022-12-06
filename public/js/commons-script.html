@@ -1,0 +1,34 @@
+<script src="/src/libs/jquery/jQuery.min.js"></script>
+<script src="/src/libs/sweetalert2/sweetalert2.all.min.js"></script>
+<script src="/src/libs/notify/notify.min.js"></script>
+
+<!--FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"></script>
+<script src="/app.js"></script>
+
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4D6TBKHQ6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4D6TBKHQ6C');
+</script>
+<script>
+		$('#menu-btn').click(function(e) {
+			e.preventDefault();
+
+			if ($('header').hasClass("extended")) {
+				$('header').removeClass("extended");
+
+			} else {
+				$('header').addClass("extended");
+			}
+
+		});
+	</script>
+<script src="/src/js/general-functions.js"></script>
+<script src="/src/js/commons-script.js"></script>

@@ -1,0 +1,487 @@
+/*-- THEME COLORS --*/
+:root {
+    /* Colors */
+    --blue: #1590d3;
+    --yellow: #faba14;
+    --red: #e63136;
+    --green: #32ba46;
+    --gray-1: #b7b7b7;
+
+    /* Shadows */
+    --shadow-1: 0 1px 3px 1px rgb(66 66 66 / 20%),
+        0 2px 8px 4px rgb(66 66 66 / 10%);
+}
+
+@font-face {
+    font-family: "Ubuntu-regular";
+    src: url("/fonts/ubuntu/Ubuntu-Regular.woff2") format("woff2"),
+        url("/fonts/ubuntu/Ubuntu-Regular.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu-italic";
+    src: url("/fonts/ubuntu/Ubuntu-Italic.woff2") format("woff2"),
+        url("/fonts/ubuntu/Ubuntu-Italic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu-bold";
+    src: url("/fonts/ubuntu/Ubuntu-Bold.woff2") format("woff2"),
+        url("/fonts/ubuntu/Ubuntu-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu-BoldItalic";
+    src: url("/fonts/ubuntu/Ubuntu-BoldItalic.woff2") format("woff2"),
+        url("/fonts/ubuntu/Ubuntu-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+/*-- END THEME COLORS --*/
+
+/*-- BASE --*/
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    margin: 0px;
+    font-family: "Ubuntu-regular";
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-css {
+    background-color: #03178c;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 4px 20px;
+    font-size: 20px;
+    border: none;
+}
+
+input,
+textarea,
+select {
+    outline: none;
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-yellow {
+    background-color: var(--yellow);
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+
+.bg-red {
+    background-color: var(--red);
+}
+
+.login-page {
+    background-color: #ffffff !important;
+}
+
+.login-box {
+    width: 90% !important;
+    padding: 0px 30px 30px;
+}
+
+.login-box > div {
+    box-shadow: unset !important;
+}
+
+.input-group-text {
+    border: 1px solid #ced4da !important;
+}
+
+.login-card-body {
+    border-radius: 20px;
+    background-color: transparent !important;
+}
+
+.login-card-body > p {
+    text-align: center;
+    margin-top: 40px !important;
+}
+
+.login-card-body > p > a {
+    color: #000000 !important;
+    font-size: 14px;
+}
+
+.content-input-login {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 50px !important;
+}
+
+.content-input-login > div {
+    margin-right: 10px;
+}
+
+.content-input-login input {
+    border: none !important;
+    border-radius: 50px !important;
+    text-align: center;
+    font-weight: bold;
+    color: #000000 !important;
+}
+
+.content-input-login input::placeholder {
+    color: #000000 !important;
+}
+
+.btn-primary {
+    background-color: #009640 !important;
+    border: none !important;
+}
+
+#content-logo-login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#content-logo-login > img {
+    width: 100%;
+}
+
+#principal-content-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#content-container {
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+        0 2px 4px -1px rgb(0 0 0 / 30%);
+    overflow: hidden;
+    position: relative;
+}
+
+#principal-content-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#principal-content-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+}
+
+.principal-title-pages {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    font-size: 14px;
+    color: #009640;
+}
+
+.main-sidebar {
+    background-color: #009640 !important;
+}
+
+[class*="sidebar-dark-"] .sidebar a {
+    color: #ffffff !important;
+}
+
+.brand-link .brand-image {
+    border-radius: 0px !important;
+    float: unset !important;
+    line-height: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 0px !important;
+    max-height: unset !important;
+    width: 100% !important;
+}
+
+.main-header {
+    background-color: #009640;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-nav > .user-menu .user-image {
+    background: #ffffff;
+}
+
+.main-footer {
+    display: none !important;
+}
+
+#content-inp-search {
+    width: 60%;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+        0 1px 5px 0 rgb(0 0 0 / 20%);
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+
+#content-inp-search > input {
+    border: none;
+}
+
+#content-inp-search > a {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#content-filter-class-att {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 30px;
+}
+
+#content-filter-class-att > span {
+    color: #1590d3;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#content-filter-class-att > select {
+    border: none;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+        0 1px 5px 0 rgb(0 0 0 / 20%);
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 4px 10px;
+    color: #1590d3;
+    font-weight: bold;
+}
+
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 1059;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popupInscripciones {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 101;
+}
+
+.cortina-popup {
+    width: 100%;
+    height: 140%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.popup-content {
+    width: 90%;
+    min-height: 400px;
+    max-height: 600px;
+    background-color: #ffff;
+    color: #4d4d4d;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.content-btn-cerrar-popup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn-cerrar-popup {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+        0 1px 5px 0 rgb(0 0 0 / 20%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-informativo {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: -50px;
+    background-color: #ffb303;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-informativo img {
+    width: 80px;
+}
+
+.content-container-p {
+    width: 100%;
+    height: calc(100% - 140px);
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    overflow: auto;
+    position: relative;
+}
+
+.content-p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+}
+
+.popup-informativo .content-popup {
+    width: 90%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-informativo .content-popup h2 {
+    font-size: 28px;
+    color: #11b711;
+    font-family: "Ubuntu-bold";
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.popup-informativo .content-popup p {
+    font-size: 20px;
+    color: #8a8a8a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.popup-informativo .content-popup a {
+    padding: 4px 20px;
+    border-radius: 20px;
+    background-color: #e51554;
+    color: #ffffff;
+    font-family: "Ubuntu-bold";
+    margin: 20px 0px;
+}
+
+.popup-informativo .content-popup span {
+    font-size: 18px;
+    font-family: "Ubuntu-regular";
+    color: #8a8a8a;
+}
+
+@media screen and (min-width: 992px) {
+    #content-container {
+        width: 500px;
+        height: 800px;
+        border-radius: 20px;
+    }
+}
