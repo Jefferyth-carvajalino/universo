@@ -1,18 +1,14 @@
 function getHoroscope() {
+
+    const route = 'https://devdash.universopsiquico.com/api/getHoroscopos';
 	$.ajax({
-		url: "/controller/horoscope-controller.php",
-		data: {
-			req: "getHoroscope",
-		},
-		method: "POST",
+		url: route,
+		method: "GET",
 		dataType: "JSON",
 		cache: false
+	}).done(function ({data}) {
+			data.forEach(horoscopeItem => {
 
-	}).done(function (sRes) {
-		// console.log(JSON.stringify(sRes));
-
-		if (sRes['res'] == "ok") {
-			sRes['msg'].forEach(horoscopeItem => {
 				// $('#h-card-container').append(`<div class="h-card"><div class="dcard"><div><h6>${horoscopeItem.name}</h6><div><img src="${horoscopeItem.img}" alt=""></div></div><div><p>${horoscopeItem.date_range}</p></div></div><div class="card-content"><h6>${horoscopeItem.name}</h6><p><b>Planeta:</b> ${horoscopeItem.planet}</p><p><b>Elemento:</b> ${horoscopeItem.element}</p><p class="h-i-descript">${horoscopeItem.description}</p></div></div>`);
 				$('#h-card-container').append(
 					`<div class="h-card">
@@ -48,15 +44,6 @@ function getHoroscope() {
 						</div>
 					</div>`);
 			});
-
-		} else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: sRes['msg']
-			});
-		}
-
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 
 		if (jqXHR.status === 0) {

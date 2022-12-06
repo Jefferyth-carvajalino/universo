@@ -1,30 +1,28 @@
-import loadAdvisersCards from './advisers-list-script.js';
+// import loadAdvisersCards from './advisers-list-script.js';
 
 function getNews() {
+    const route = 'https://devdash.universopsiquico.com/api/getNoticias';
 	$.ajax({
-		url: "/controller/news-controller.php",
-		data: {
-			req: "getNews",
-		},
-		method: "POST",
+		url: route,
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 
-	}).done(function (sRes) {
+	}).done(function ({data}) {
 		// console.log(JSON.stringify(sRes));
 
-		if (sRes['res'] == "ok") {
-			sRes['msg'].forEach(newItem => {
+		// if (sRes['res'] == "ok") {
+			data.forEach(newItem => {
 				$('#n-ab').append(`<div class="n-card"><div class="n-c-body"><div class="nc-icon"><img src="${newItem.img}" alt=""></div><div class="nc-text"><h5>${newItem.name}</h5><p>${newItem.description}</p></div><div class="nc-bt"><a href="/noticias/noticia/?id=${newItem.id}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
 			});
 
-		} else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: sRes['msg']
-			});
-		}
+		// } else {
+		// 	Swal.fire({
+		// 		icon: 'error',
+		// 		title: 'Oops...',
+		// 		text: sRes['msg']
+		// 	});
+		// }
 
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 
@@ -57,5 +55,5 @@ function getNews() {
 
 (function () {
 	getNews();
-	loadAdvisersCards();
+	// loadAdvisersCards();
 })();

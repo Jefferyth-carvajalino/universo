@@ -1,31 +1,28 @@
-import loadAdvisersCards from "./advisers-list-script.js";
+// import loadAdvisersCards from "./advisers-list-script.js";
 
 function getSpecialities() {
+    const route = 'https://devdash.universopsiquico.com/api/getEspecialidades';
 	$.ajax({
-		url: "/controller/specialities-controller.php",
-		data: {
-			req: "getSpecialities",
-		},
-		method: "POST",
+		url: route,
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 
-	}).done(function (sRes) {
+	}).done(function ({data}) {
 		// console.log(JSON.stringify(sRes));
 
-		if (sRes['res'] == "ok") {
-			sRes['msg'].forEach(specialityItem => {
+		// if (sRes['res'] == "ok") {
+			data.forEach(specialityItem => {
 				$('#e-ab').append(`<div class="e-card"><div class="e-c-body"><div class="ec-icon">${specialityItem.svg}</div><div class="ec-text"><h5>${specialityItem.name}</h5><p>${specialityItem.description}</p></div><div class="ec-bt"><a href="/especialidades/especialidad/?id=${specialityItem.id}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
-
 			});
 
-		} else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: sRes['msg']
-			});
-		}
+		// } else {
+		// 	Swal.fire({
+		// 		icon: 'error',
+		// 		title: 'Oops...',
+		// 		text: sRes['msg']
+		// 	});
+		// }
 
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 
@@ -58,5 +55,5 @@ function getSpecialities() {
 
 (function () {
 	getSpecialities();
-	loadAdvisersCards();
+	// loadAdvisersCards();
 })();

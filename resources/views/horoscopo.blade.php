@@ -35,111 +35,14 @@
 
 			<div class="ab-container" id="h-ab">
 				<div id="h-card-container">
-					<div class="h-card">
-						<div>
-							<div id="content-titel-horoscope">
-								<h6>Leo</h6>
-							</div>
-
-							<div class="dcard">
-								<img src="{{url("img/horoscopo/horoscopo-front/leo.svg")}}" alt="">
-							</div>
-
-							<div class="card-content">
-								<div>
-
-									<p>
-										<b>Planeta:</b> Sol
-									</p>
-
-									<p>
-										<b>Elemento:</b> Fuego
-									</p>
-
-									<p>
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-									</p>
-								</div>
-							</div>
-
-							<div class="content-btn-hor">
-								<a href="/dashboard-consultor/horoscopo/">¿Quieres mas información de tu horoscopo?</a>
-							</div>
-						</div>
-					</div>
-					<div class="h-card">
-						<div>
-							<div id="content-titel-horoscope">
-								<h6>Leo</h6>
-							</div>
-
-							<div class="dcard">
-								<img src="{{url("img/horoscopo/horoscopo-front/leo.svg")}}" alt="">
-							</div>
-
-							<div class="card-content">
-								<div>
-
-									<p>
-										<b>Planeta:</b> Sol
-									</p>
-
-									<p>
-										<b>Elemento:</b> Fuego
-									</p>
-
-									<p>
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-									</p>
-								</div>
-							</div>
-
-							<div class="content-btn-hor">
-								<a href="/dashboard-consultor/horoscopo/">¿Quieres mas información de tu horoscopo?</a>
-							</div>
-						</div>
-					</div>
-					<div class="h-card">
-						<div>
-							<div id="content-titel-horoscope">
-								<h6>Leo</h6>
-							</div>
-
-							<div class="dcard">
-								<img src="{{url("img/horoscopo/horoscopo-front/leo.svg")}}" alt="">
-							</div>
-
-							<div class="card-content">
-								<div>
-
-									<p>
-										<b>Planeta:</b> Sol
-									</p>
-
-									<p>
-										<b>Elemento:</b> Fuego
-									</p>
-
-									<p>
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-										Queridos Leoninos, hay que mantener la fe, es posible que para estas semanas, el universo te ponga a prueba en cuanto a tus ideales y a las cosas que deseas, es por eso que en tu corazón debe permanecer la motivación. De esta manera, debes aprovechar cada momento vivido para culminar en éxito los propósitos de tu mente. Tu planta: Helecho
-									</p>
-								</div>
-							</div>
-
-							<div class="content-btn-hor">
-								<a href="/dashboard-consultor/horoscopo/">¿Quieres mas información de tu horoscopo?</a>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
 
 		<section class="s-al">
 		</section>
+        @push('page_scripts')
+            <script src="{{asset('js/horoscope-script.js')}}"></script>
+        @endpush
 	</main>
 @endsection
