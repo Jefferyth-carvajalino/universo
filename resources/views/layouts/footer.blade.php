@@ -6,14 +6,14 @@
 
 				<div class="sn-container">
 					<a href="https://www.facebook.com/Universo-Ps%C3%ADquico-104114208442533" target="_blank" class="icons-footer-social">
-						<img src="/src/img/footer/f-i-sn-1.svg" alt="">
+						<img src="{{url("img/footer/f-i-sn-1.svg")}}" alt="">
 					</a>
 
 					<a href="https://www.instagram.com/somosuniversopsiquico/" target="_blank" class="icons-footer-social">
-						<img src="/src/img/footer/f-i-sn-2.svg" alt="">
+						<img src="{{url("img/footer/f-i-sn-2.svg")}}" alt="">
 					</a>
 
-					<img style="width: 40% !important;" src="/src/img/footer/sello.png" alt="">
+					<img style="width: 40% !important;" src="{{url("img/footer/sello.png")}}" alt="">
 				</div>
 			</div>
 
@@ -44,7 +44,7 @@
 			<div class="ict-container">
 				<p>
 					<span>
-						<img src="/src/img/footer/Footer_Icono_contacto_01-36.svg" alt="">
+						<img src="{{url("img/footer/Footer_Icono_contacto_01-36.svg")}}" alt="">
 					</span>
 
 					UniversoPsiquico
@@ -60,7 +60,7 @@
 
 				<p>
 					<span>
-						<img src="/src/img/footer/Footer_Icono_contacto_04-39.svg" alt="">
+						<img src="{{url("img/footer/Footer_Icono_contacto_04-39.svg")}}" alt="">
 					</span>
 
 					info@universopsiquico.com
@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="f-i-container">
-				<img src="/src/img/footer/f-b.png" alt="">
+				<img src="{{url("img/footer/f-b.png")}}" alt="">
 			</div>
 		</div>
 

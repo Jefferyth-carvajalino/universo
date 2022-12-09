@@ -753,7 +753,7 @@
 		<section id="s-pf">
 			<div class="pf-container">
 				<div class="pf-l">
-					<img src="img/index/preguntas-frecuentes-i.svg" alt="">
+					<img src="{{url("img/index/preguntas-frecuentes-i.svg")}}" alt="">
 					<h2>
 						Preguntas
 						<span>frecuentes</span>

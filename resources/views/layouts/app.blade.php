@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{url('css/footer.css')}}">
 	<link rel="stylesheet" href="{{url('css/_page-reset.css')}}">
 	<link rel="stylesheet" href="{{url('css/general-style.css')}}">
+	<link rel="stylesheet" href="{{url('css/my-components/_advisers-list.css')}}">
 
     @stack('page_styles')
 </head>

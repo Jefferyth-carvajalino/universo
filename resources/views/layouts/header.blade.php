@@ -68,7 +68,7 @@
 	</div>
 
 	<div class="btn-login-container">
-		<a href="/log-in/" id="btn-login">
+		<a href="{{url("/login")}}" id="btn-login">
 			<span>
 				<img src="{{url("img/dashboard/i-perfil.svg")}}" alt="">
 			</span>

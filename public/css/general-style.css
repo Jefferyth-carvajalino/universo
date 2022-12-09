@@ -362,10 +362,10 @@ select {
 }
 
 .popup-content {
-    width: 90%;
+    /* width: 90%;
     min-height: 400px;
     max-height: 600px;
-    background-color: #ffff;
+    background-color: #ffff; */
     color: #4d4d4d;
     border-radius: 20px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
@@ -485,3 +485,86 @@ select {
         border-radius: 20px;
     }
 }
+
+/* .advisers-list-component .paginator-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #18577e;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+}
+
+section .paginator-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.advisers-list-component #content-btn-trabaja-con-nosotros {
+    position: absolute;
+    left: calc(50% - 90px);
+    bottom: 25px;
+}
+
+.advisers-list-component #content-btn-trabaja-con-nosotros > a {
+    padding: 5px 10px;
+    color: #252947;
+    background-color: #00e5e5;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%),
+        0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+        0 2px 4px -1px rgb(0 0 0 / 30%);
+    text-decoration: none;
+}
+
+.advisers-list-component {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (min-width: 992px) {
+    .advisers-list-component .na-head {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+}
+
+.advisers-list-component .na-head {
+    padding: 20px 0px;
+    background-color: #252947;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+} */
