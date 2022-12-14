@@ -27,3 +27,8 @@ Route::resource('/especialidades-interno', App\Http\Controllers\EspecialidadesIn
 Route::resource('/noticias', App\Http\Controllers\NoticiasController::class);
 Route::resource('/noticias-interno', App\Http\Controllers\NoticiasInternoController::class);
 Route::resource('/conocenos', App\Http\Controllers\ConocenosController::class);
+
+Route::prefix('dashboard-especialista')->group(function () {
+    Route::get('/perfil',[App\Http\Controllers\Advicer\HandlerController::class,'perfil']);
+});
+

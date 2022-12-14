@@ -1,10 +1,8 @@
 function getCountries() {
 	return new Promise((resolve, reject) => {
+        const url = "https://devdash.universopsiquico.com/api/advicer/auth/login";
 		$.ajax({
-			url: "/controller/countries-controller.php",
-			data: {
-				req: "getAllCountries",
-			},
+			url,
 			method: "POST",
 			dataType: "JSON",
 			cache: false
@@ -50,21 +48,17 @@ function getCountries() {
 
 function login(dataToSend) {
 	return new Promise((resolve, reject) => {
+        const url = "https://devdash.universopsiquico.com/api/advicer/auth/login";
 		$.ajax({
-			url: "/controller/login-controller.php",
-			data: { ...dataToSend, req: "login" },
+			url,
+			data: { ...dataToSend },
 			method: "POST",
 			dataType: "JSON",
 			cache: false
 
-		}).done(function (sRes) {
-			if (sRes['res'] == "ok") {
-				resolve(sRes['user']);
-
-			} else {
-				reject(sRes['msg']);
-			}
-
+		}).done(function (response) {
+            sessionStorage.setItem("token", response['token']);
+            resolve(response['data']);
 		}).fail(function (jqXHR, textStatus, errorThrown) {
 
 			if (jqXHR.status === 0) {
@@ -251,9 +245,9 @@ $('#login-form').submit(async function (e) {
 
 			// getTokenNotification()
 
-			let notificationToken = localStorage.getItem("notificationToken");
+			// let notificationToken = localStorage.getItem("notificationToken");
 
-			const user = await login({ username, pass: password, notificationToken });
+			const user = await login({ email:username, password });
 			$('#login-username').val("");
 			$('#login-password').val("");
 
