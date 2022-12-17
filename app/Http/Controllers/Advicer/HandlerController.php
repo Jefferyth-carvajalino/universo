@@ -12,4 +12,19 @@ class HandlerController extends Controller
         $backpack = [];
         return  view('advicer.viewPerfil.index',$backpack);
     }
+
+    public function inbox(){
+        $backpack = [];
+        return  view('advicer.viewInbox.index',$backpack);
+    }
+
+    public function misIngresos(){
+        $backpack = [];
+        return view('advicer.viewMisIngresos.index',$backpack);
+    }
+
+    public function horoscopo(){
+        $backpack = [];
+        return view('advicer.viewHoroscopo.index',$backpack);
+    }
 }

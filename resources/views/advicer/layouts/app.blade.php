@@ -23,6 +23,7 @@
 
 <body>
     @include('advicer.partials.header')
+    @yield('pre-main')
 	<main class="dshb-main">
 		<section id="s-dashboard">
             @include('advicer.partials.dshb-sidebar')

@@ -30,5 +30,8 @@ Route::resource('/conocenos', App\Http\Controllers\ConocenosController::class);
 
 Route::prefix('dashboard-especialista')->group(function () {
     Route::get('/perfil',[App\Http\Controllers\Advicer\HandlerController::class,'perfil']);
+    Route::get('/inbox',[App\Http\Controllers\Advicer\HandlerController::class,'inbox']);
+    Route::get('/mis-ingresos',[App\Http\Controllers\Advicer\HandlerController::class,'misIngresos']);
+    Route::get('/horoscopo',[App\Http\Controllers\Advicer\HandlerController::class,'horoscopo']);
 });
 
