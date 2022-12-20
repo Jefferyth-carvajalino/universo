@@ -1,9 +1,16 @@
 function getAdviserProfits() {
     return new Promise((resolve, reject) => {
+
+        $.ajaxSetup({
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            }
+       });
+
+        const url = "https://devdash.universopsiquico.com/api/advicer/getAdviserProfits";
         $.ajax({
-            url: "/controller/advisers-controller.php",
-            data: { req: "getAdviserProfits" },
-            method: "POST",
+            url,
+            method: "GET",
             dataType: "JSON",
             cache: false
 
