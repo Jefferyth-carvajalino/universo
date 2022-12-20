@@ -135,20 +135,19 @@ $('#search-adviser-form').submit(function (e) {
 function getAdvisers() {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/advisers-controller.php",
-			data: {
-				req: "getAdvisers",
-			},
-			method: "POST",
+			url: "https://devdash.universopsiquico.com/api/getAdvicers",
+			method: "GET",
 			dataType: "JSON",
 			cache: false
-		}).done(function (sResponse) {
-			if (sResponse['res'] == "ok") {
-				resolve(sResponse['msg']);
+		}).done(function ({data}) {
+			console.log("sresponse", data);
+				resolve(data);
+			// if (sResponse['res'] == "ok") {
+			// 	console.log("sresponse", data);
 
-			} else {
-				reject(sResponse['msg']);
-			}
+			// } else {
+			// 	reject(data);
+			// }
 
 		}).fail(function (jqXHR, textStatus, errorThrown) {
 

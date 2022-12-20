@@ -168,7 +168,7 @@
 .advisers-list-component .na-body {
 	width: 100%;
 	padding: 20px 10px 10px;
-	background-image: url("/src/img/index/asesores-bg.png");
+	background-image: url("../../img/index/asesores-bg.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: grid;

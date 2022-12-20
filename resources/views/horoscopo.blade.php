@@ -41,6 +41,7 @@
 
 		<section class="s-al">
 		</section>
+		@include('layouts.nuestrosAsesores')
         @push('page_scripts')
             <script src="{{asset('js/horoscope-script.js')}}"></script>
         @endpush

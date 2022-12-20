@@ -25,6 +25,8 @@
 
 		<section class="s-al">
 		</section>
+		
+		@include('layouts.nuestrosAsesores')
 	</main>
     @push('page_scripts')
         <script src="{{asset('js/noticias-script.js')}}"></script>
