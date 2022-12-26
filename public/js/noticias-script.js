@@ -13,7 +13,7 @@ function getNews() {
 
 		// if (sRes['res'] == "ok") {
 			data.forEach(newItem => {
-				$('#n-ab').append(`<div class="n-card"><div class="n-c-body"><div class="nc-icon"><img src="${newItem.img}" alt=""></div><div class="nc-text"><h5>${newItem.name}</h5><p>${newItem.description}</p></div><div class="nc-bt"><a href="/noticias/noticia/?id=${newItem.id}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
+				$('#n-ab').append(`<div class="n-card"><div class="n-c-body"><div class="nc-icon"><img src="${newItem.img}" alt=""></div><div class="nc-text"><h5>${newItem.name}</h5><p>${newItem.description}</p></div><div class="nc-bt"><a href="/noticias-interno/?id=${newItem.id}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
 			});
 
 		// } else {

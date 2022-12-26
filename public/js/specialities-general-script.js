@@ -13,7 +13,7 @@ function getSpecialities() {
 
 		// if (sRes['res'] == "ok") {
 			data.forEach(specialityItem => {
-				$('#e-ab').append(`<div class="e-card"><div class="e-c-body"><div class="ec-icon">${specialityItem.svg}</div><div class="ec-text"><h5>${specialityItem.name}</h5><p>${specialityItem.description}</p></div><div class="ec-bt"><a href="/especialidades/especialidad/?id=${specialityItem.id}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
+				$('#e-ab').append(`<div class="e-card"><div class="e-c-body"><div class="ec-icon">${specialityItem.svg}</div><div class="ec-text"><h5>${specialityItem.name}</h5><p>${specialityItem.description}</p></div><div class="ec-bt"><a href="{{url("/especialidadinterno/?id=${specialityItem.id}")}}" id="btn-search"><span><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#ffffff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span><span>Ver más</span></a></div></div></div>`);
 			});
 
 		// } else {
