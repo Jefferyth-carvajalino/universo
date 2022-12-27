@@ -50,15 +50,18 @@ function getCountries() {
 
 function login(dataToSend) {
 	return new Promise((resolve, reject) => {
+
+        const url = "https://devdash.universopsiquico.com/api/customer/auth/login";
 		$.ajax({
-			url: "/controller/login-controller.php",
-			data: { ...dataToSend, req: "login" },
+			url,
+			data: { ...dataToSend },
 			method: "POST",
 			dataType: "JSON",
 			cache: false
 
 		}).done(function (sRes) {
 			if (sRes['res'] == "ok") {
+                sessionStorage.setItem("token", sRes['token']);
 				resolve(sRes['user']);
 
 			} else {
@@ -253,7 +256,7 @@ $('#login-form').submit(async function (e) {
 
 			let notificationToken = localStorage.getItem("notificationToken");
 
-			const user = await login({ username, pass: password, notificationToken });
+			const user = await login({ email:username, password });
 			$('#login-username').val("");
 			$('#login-password').val("");
 

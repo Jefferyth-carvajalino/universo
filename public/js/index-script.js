@@ -134,6 +134,12 @@ $('#search-adviser-form').submit(function (e) {
 
 function getAdvisers() {
 	return new Promise((resolve, reject) => {
+        $.ajaxSetup({
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            }
+       });
+
 		$.ajax({
 			url: "https://devdash.universopsiquico.com/api/getAdvicers",
 			method: "GET",

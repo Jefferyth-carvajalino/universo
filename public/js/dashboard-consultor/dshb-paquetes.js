@@ -1,11 +1,16 @@
 function getPackages() {
-	const params = new URLSearchParams();
-	params.append("req", "getAll");
-
+	// const params = new URLSearchParams();
+	// params.append("req", "getAll");
+    console.log("hola")
+    const url = "https://devdash.universopsiquico.com/api/getAllProducts"
 	return axios({
-		method: "post",
-		url: "/controller/products-controller.php",
-		data: params,
+
+		method: "GET",
+		url,
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        }
+		// data: params,
 	}).then((response) => {
 		return response.data;
 	});
@@ -260,9 +265,11 @@ $(".btn-close-modal").click(function (e) {
 	$(".pay-modal").removeClass("active");
 });
 
+console.log("hola")
 getPackages()
 	.then((sRes) => {
 		sRes["msg"].forEach((package) => {
+            console.log("hola")
 			$("#mc-paquetes-box")
 				.append(`<span>
 					<img src="${package.image}" alt="img paquetes">

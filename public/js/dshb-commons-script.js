@@ -91,7 +91,10 @@ function changeConnectionStatus(dataToSend) {
 	});
 }
 
-if (user.rol === "adviser") {
+
+
+
+if (localStorage.getItem("user").rol === "adviser") {
 	if (parseInt(user.online) === 0) {
 		$('#disconnected-option').attr("checked", true);
 	} else if (parseInt(user.online) === 2) {

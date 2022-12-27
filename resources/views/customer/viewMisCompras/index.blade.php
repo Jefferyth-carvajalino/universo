@@ -1,10 +1,10 @@
 @extends('customer.layouts.app')
 @push('styles_header')
     <link rel="stylesheet" href="{{asset('css/dash-advicer/dshb-perfil-especialista.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/dshb-mis-compras-consultor.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dash-customer/dshb-mis-compras-consultor.css')}}">
 @endpush
 @section('page')
-Perfil
+Mis Compras
 @endsection
 @section('content')
 <div id="mis-compras-container">
@@ -38,5 +38,5 @@ Perfil
 				</div>
 @endsection
 @push('scripts_footer')
-    @include('customer.viewPerfil.scripts')
+    @include('customer.viewMisCompras.scripts')
 @endpush

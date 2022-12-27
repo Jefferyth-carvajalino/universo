@@ -196,12 +196,16 @@ setInterval(function () {
 }, 1000);
 
 function getBalance() {
+    $.ajaxSetup({
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        }
+   });
+    const url = "https://devdash.universopsiquico.com/api/customer/getBalance";
 	$.ajax({
-		url: "/controller/dshb-perfil-consultor-controller.php",
-		data: {
-			req: "getBalance"
-		},
-		method: "POST",
+		url,
+
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 
@@ -318,7 +322,7 @@ $('#btn-deny').click(function (e) {
 });
 
 /**
- * these twice functions allow customForm functionality 
+ * these twice functions allow customForm functionality
  */
 
 customFormFunc();

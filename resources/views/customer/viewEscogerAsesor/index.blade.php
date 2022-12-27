@@ -1,15 +1,16 @@
 @extends('customer.layouts.app')
 @push('styles_header')
     <link rel="stylesheet" href="{{asset('css/dash-advicer/dshb-perfil-especialista.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dash-customer/dshb-buscar-asesor.min.css')}}">
 @endpush
 @section('page')
-Perfil
+Mis Compras
 @endsection
 @section('content')
-
-						
-					@include('layouts.nuestrosAsesoresDash')
+    @include('layouts.nuestrosAsesoresDash')
 @endsection
 @push('scripts_footer')
-    @include('customer.viewPerfil.scripts')
+    <script src="{{asset('libs/pagination/pagination.min.js')}}"></script>
+    @include('customer.viewEscogerAsesor.scripts')
+
 @endpush

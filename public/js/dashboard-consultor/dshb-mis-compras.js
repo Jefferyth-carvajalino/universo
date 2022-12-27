@@ -3,13 +3,13 @@ $('.actual-balance-container span').text(`$${parseFloat(user.total_amount_purcha
 getCompras();
 
 function getCompras() {
+    const url = "https://devdash.universopsiquico.com/api/customer/getCompras";
 	$.ajax({
-		url: "/controller/dshb-consultor-miscompras-controller.php",
-		data: {
-			req: "getCompras",
-			customer: user.id,
-		},
-		method: "POST",
+		url,
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        },
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 	}).done(function (sResponse) {

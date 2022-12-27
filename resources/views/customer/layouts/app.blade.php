@@ -12,6 +12,7 @@
     @stack('styles_header')
 
 	<!-- Global site tag (gtag.js) - Google Ads: 1003325170 -->
+    @method('scripts_header')
 	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1003325170"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -36,19 +37,30 @@
 		</section>
 	</main>
 	<script src="{{asset('libs/jquery/jQuery.min.js')}}"></script>
+    <script src="{{asset('libs/DataTables/datatables.min.js')}}"></script>
+    <script src="{{asset('libs/sweetalert2/sweetalert2.all.min.js')}}"></script>
+    <script>
+        $('#menu-btn').click(function(e) {
+            e.preventDefault();
+
+            if ($('header').hasClass("extended")) {
+                $('header').removeClass("extended");
+
+            } else {
+                $('header').addClass("extended");
+            }
+
+        });
+    </script>
 	<script>
 		$('#btn-sidebar-actuator').click(function(e) {
 			e.preventDefault();
 			$('.dshb-sidebar').toggleClass("show");
 		});
 	</script>
-	<script src="{{asset('libs/dropify/js/dropify.min.js')}}"></script>
-	<script src="{{url("libs/pagination/pagination.min.js")}}"></script>
-	<script src="{{url("libs/DataTables/datatables.min.js")}}"></script>
-	<script src="{{asset('js/general-functions.js')}}"></script>
-	<script src="{{asset('js/dshb-commons-script.js')}}"></script>
-	<script src="{{url('js/commons-script.js')}}"></script>
-	<script src="{{url('js/index-script.js')}}"></script>
+    <script src="{{asset('js/general-functions.js')}}"></script>
+    <script src="{{asset('js/commons-script.js')}}"></script>
+
 
     @stack('scripts_footer')
 
