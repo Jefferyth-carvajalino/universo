@@ -30,8 +30,7 @@
 						</div>
 						<div class="bi-3col-col content-text-banner">
 							<div class="image-logo-banner">
-								<h2>En</h2>
-								<img src="{{url("img/commons/brand.svg")}}" alt="">
+								<img src="{{url("img/index/Esmeralda-2.png")}}" alt="">
 								<p>Encontrarás <b>tu respuesta</b></p>
 							</div>
 						</div>
@@ -50,7 +49,6 @@
 						</div>
 						<div class="bi-3col-col content-text-banner">
 							<div class="image-logo-banner">
-								<h2>En</h2>
 								<img src="img/commons/brand.svg" alt="">
 								<p>Encontrarás <b>tu respuesta</b></p>
 							</div>
@@ -73,7 +71,7 @@
 							<img src="img/index/banner-cel.png" alt="">
 						</div>
 						<div class="bi-3col-col content-btn-ver-mas-banner">
-							<img src="img/index/banner-cartas.png" alt="">
+							<img src="img/index/asesores-tar.png" alt="">
 							<a href="/dashboard-consultor/buscar-asesor/">
 								Ver más
 							</a>

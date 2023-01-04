@@ -27,4 +27,9 @@ class HandlerController extends Controller
         $backpack = [];
         return view('advicer.viewHoroscopo.index',$backpack);
     }
+
+    public function chat(){
+        $backpack = [];
+        return view('advicer.viewChat.index',$backpack);
+    }
 }
