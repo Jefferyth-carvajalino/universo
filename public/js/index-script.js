@@ -41,8 +41,6 @@ function generateAdvisersCards(universoCost, advisers = []) {
 							<b class="readings">${readings}</b>
 							lecturas
 						</span>
-						<span>|</span>
-						<span><b class="price-per-minute">$${adviserCost}</b> USD/min</span>
 					</p>
 					<p id="adviser-state" class="${adviserStateClass}">${adviserState}</p>
 				</div>
@@ -134,20 +132,20 @@ $('#search-adviser-form').submit(function (e) {
 
 function getAdvisers() {
 	return new Promise((resolve, reject) => {
-        $.ajaxSetup({
-            headers: {
-                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
-            }
-       });
+		$.ajaxSetup({
+			headers: {
+				'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+			}
+		});
 
 		$.ajax({
 			url: "https://devdash.universopsiquico.com/api/getAdvicers",
 			method: "GET",
 			dataType: "JSON",
 			cache: false
-		}).done(function ({data}) {
+		}).done(function ({ data }) {
 			console.log("sresponse", data);
-				resolve(data);
+			resolve(data);
 			// if (sResponse['res'] == "ok") {
 			// 	console.log("sresponse", data);
 
@@ -475,7 +473,7 @@ $("#bnn-der-paq").click(function () {
 		// autoWidth: true,
 		autoplayTimeout: 5000,
 		autoplaySpeed: 5000,
-		autoHeight: true,
+		// autoHeight: true,
 		autoplayHoverPause: true,
 		responsive: {
 			0: {

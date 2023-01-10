@@ -196,12 +196,12 @@ setInterval(function () {
 }, 1000);
 
 function getBalance() {
-    $.ajaxSetup({
-        headers: {
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
-        }
-   });
-    const url = "https://devdash.universopsiquico.com/api/customer/getBalance";
+	$.ajaxSetup({
+		headers: {
+			'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+		}
+	});
+	const url = "https://devdash.universopsiquico.com/api/customer/getBalance";
 	$.ajax({
 		url,
 
@@ -393,6 +393,14 @@ $(document).ready(function () {
 
 $('#btn-close-popup-welcome').click(function (e) {
 	$('#welcome-popup').removeClass('showing');
+})
+
+$('#btn-close-popup-servicios-c').click(function (e) {
+	$('#servicios-c-popup').removeClass('showing');
+})
+
+$('#btn-servicios').click(function (e) {
+	$('#servicios-c-popup').addClass('showing');
 })
 
 $('#btn-close-popup-index').click(function (e) {

@@ -288,8 +288,7 @@ section.s-banner
         .content-text-banner
         .image-logo-banner
         > img {
-        width: 70%;
-        margin-bottom: 40px;
+        width: 60%;
     }
 }
 section.s-banner

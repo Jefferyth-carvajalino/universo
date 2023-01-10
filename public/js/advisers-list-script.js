@@ -87,8 +87,6 @@ function generateAdvisersCards(universoCost, advisers = []) {
 							<b class="readings">${readings}</b>
 							lecturas
 						</span>
-						<span>|</span>
-						<span><b class="price-per-minute">$${adviserCost}</b> USD/min</span>
 					</p>
 					<p id="adviser-state" class="${adviserStateClass}">${adviserState}</p>
 				</div>
@@ -109,6 +107,7 @@ function renderCards(advisers) {
 		callback: function (data, pagination) {
 			const html = generateAdvisersCards(UNIVERSO_COST, data);
 			const adviserBox = $('#advisers-box');
+			console.log(adviserBox);
 			adviserBox.html(html);
 		}
 	});

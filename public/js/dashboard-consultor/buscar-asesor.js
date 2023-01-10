@@ -82,8 +82,6 @@ function generateAdvisersHtml(universoCost, advisers = []) {
 							<b class="readings">${readings}</b>
 							lecturas
 						</span>
-						<span>|</span>
-						<span><b class="price-per-minute">$${adviserCost}</b> USD/min</span>
 					</p>
 					<p class="adviser-state ${adviserState.toLowerCase()}">${adviserState}</p>
 				</div>

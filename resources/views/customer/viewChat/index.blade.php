@@ -7,6 +7,37 @@
 Perfil
 @endsection
 @section('content')
+<div class="popup " id="servicios-c-popup">
+	<div class="popup-container">
+		<button class="btn-close-popup" id="btn-close-popup-servicios-c">
+			<svg style="width:28px;height:28px" viewBox="0 0 24 24">
+				<path fill="#1173a1" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+			</svg>
+		</button>
+		<div class="popup-content-chat">
+			<h2>Servicios</h2>
+
+			<div id="content-servicios">
+				<a href="#">
+					<img src="/src/img/user-default.png" alt="">
+					<h4>Tarot</h4>
+				</a>
+				<a href="#">
+					<img src="/src/img/user-default.png" alt="">
+					<h4>Lectura de tabaco</h4>
+				</a>
+				<a href="#">
+					<img src="/src/img/user-default.png" alt="">
+					<h4>Tarot</h4>
+				</a>
+				<a href="#">
+					<img src="/src/img/user-default.png" alt="">
+					<h4>Tarot</h4>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
 
 	<div id="chat-container">
 					<div class="loader-wrapper">
@@ -199,6 +230,14 @@ Perfil
 									</svg>
 								</a>
 							</div>
+
+							
+
+								<a href="#" id="btn-servicios">
+									<svg style="width:28px;height:28px" viewBox="0 0 24 24">
+										<path fill="#999999" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+									</svg>
+								</a>
 						</div>
 					</div>
 				</div>w
