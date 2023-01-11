@@ -100,7 +100,7 @@
 			</div>
 
 			<div>
-				<a href="/log-in/"><img src="img/index/promo-2.jpg" alt=""></a>
+				<a href="/log-in/"><img src="img/index/promo-1.jpg" alt=""></a>
 				<a href="/log-in/"><img src="img/index/promo-2.jpg" alt=""></a>
 			</div>
 		</section>
