@@ -187,13 +187,13 @@ setInterval(function () {
 	}
 }, 1000);
 
-setInterval(function () {
-	if ((localStorage.getItem('user')) !== null) {
-		if (user.rol == "adviser") {
-			countHoroscopeRequestsByAdviserId()
-		}
-	}
-}, 1000);
+// setInterval(function () {
+// 	if ((localStorage.getItem('user')) !== null) {
+// 		if (user.rol == "adviser") {
+// 			countHoroscopeRequestsByAdviserId()
+// 		}
+// 	}
+// }, 1000);
 
 function getBalance() {
 	$.ajaxSetup({
@@ -400,7 +400,8 @@ $('#btn-close-popup-servicios-c').click(function (e) {
 })
 
 $('#btn-servicios').click(function (e) {
-	$('#servicios-c-popup').addClass('showing');
+	console.log("entra serv");
+	// $('#servicios-c-popup').addClass('showing');
 })
 
 $('#btn-close-popup-index').click(function (e) {

@@ -1,4 +1,4 @@
-import main from "./adviser-description/utils.js";
+import main from "../js/adviser-description/utils.js";
 
 main();
 

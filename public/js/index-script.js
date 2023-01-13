@@ -68,7 +68,7 @@ function renderCards(advisers) {
 
 async function filterAdvisers(searchWord) {
 	const advisers = await getAdvisers();
-	console.log('Advisers: ', advisers);
+	// console.log('Advisers: ', advisers);
 	let searchedAdvisers = advisers.filter(function ({ nickname }) {
 		return nickname.toLowerCase().indexOf(searchWord.toLowerCase()) > -1;
 	});
@@ -144,7 +144,7 @@ function getAdvisers() {
 			dataType: "JSON",
 			cache: false
 		}).done(function ({ data }) {
-			console.log("sresponse", data);
+			// console.log("sresponse", data);
 			resolve(data);
 			// if (sResponse['res'] == "ok") {
 			// 	console.log("sresponse", data);
@@ -349,7 +349,7 @@ function enviarMsj() {
 
 	grecaptcha.execute("6Lfhl9IZAAAAAA5iSF520_ou02EL2zI6xVgxUQm7", { action: "homepage" }).then(function (token) {
 		g_token = token;
-		console.log(g_token);
+		// console.log(g_token);
 	});
 
 	let name = $("#cf-name").val();
@@ -381,10 +381,10 @@ function enviarMsj() {
 			cache: false
 		})
 			.done(function (sResponse) {
-				console.log(sResponse);
+				// console.log(sResponse);
 				if (sResponse["respuesta"] == "ok") {
 					if (sResponse["mensaje"] != "grecaptcha-error") {
-						console.log(sResponse);
+						// console.log(sResponse);
 						Swal.fire({
 							position: 'center',
 							icon: "success",

@@ -1,32 +1,24 @@
 const specialityId = getUrlSearch("id");
 
 function getSpeciality() {
+	 const route = `https://devdash.universopsiquico.com/api/specialities?id=${specialityId}`;
 	$.ajax({
-		url: "/controller/specialities-controller.php",
-		data: {
-			req: "getSpecialityItem",
-			speciality: specialityId,
-		},
-		method: "POST",
+		url: route,
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 
-	}).done(function (sRes) {
-		console.log(JSON.stringify(sRes));
+	}).done(function (data) {
 
-		if (sRes['res'] == "ok") {
+		let especialidad = data.data[0]
 
-			$('#title').html(`<span>${sRes['msg']['svg']}</span>${sRes['msg']['name']}`);
-			$('#description').text(`${sRes['msg']['description']}`);
-			$('#img-bg-container').html(`<img class="seccion-image" src="${sRes['msg']['img']}" alt="${sRes['msg']['name']}">`);
+		console.log("especialidad",especialidad);
 
-		} else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: sRes['msg']
-			});
-		}
+
+		$('#title').html(`<span>${especialidad.svg}</span>${especialidad.name}`);
+		$('#description').text(`${especialidad['description']}`);
+		$('#img-bg-container').html(`<img class="seccion-image" src="${especialidad['img']}" alt="${especialidad['name']}">`);
+		
 
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 

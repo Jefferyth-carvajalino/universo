@@ -35,6 +35,7 @@ Route::prefix('dashboard-especialista')->group(function () {
 	Route::get('/mis-ingresos', [App\Http\Controllers\Advicer\HandlerController::class, 'misIngresos']);
 	Route::get('/horoscopo', [App\Http\Controllers\Advicer\HandlerController::class, 'horoscopo']);
 	Route::get('/chat', [App\Http\Controllers\Advicer\HandlerController::class, 'chat']);
+	Route::get('/mis-servicios', [App\Http\Controllers\Advicer\HandlerController::class, 'servicios']);
 });
 
 Route::prefix('dashboard-consultor')->group(function () {
@@ -45,5 +46,4 @@ Route::prefix('dashboard-consultor')->group(function () {
 	Route::get('/paquetes', [App\Http\Controllers\Customer\HandlerController::class, 'comprarPaquetes']);
 	Route::get('/buscar-asesor', [App\Http\Controllers\Customer\HandlerController::class, 'escogerAsesor']);
 	Route::get('/chat', [App\Http\Controllers\Customer\HandlerController::class, 'chat']);
-	Route::get('/mis-servicios', [App\Http\Controllers\Customer\HandlerController::class, 'servicios']);
 });
