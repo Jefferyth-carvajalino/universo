@@ -12,12 +12,13 @@ async function mainChat(){
 async function iniciarWebsockets(){
 
     // ABRIR VENTANA DE ESPERA
+
     // $('.loader-wrapper').addClass("active");
 
     // TRAER HISTORIAL DE MENSAJES
     const mensajes = await getMessages();
     renderOldMessages(mensajes.mensajes);
-    const adviserSelected = getUrlSearch("customer");
+    const customerSelected = getUrlSearch("customer");
 
     // const ws = adonis.Ws('wss://chatnew.universopsiquico.com',{
     const ws = adonis.Ws('ws://localhost:3333',{
@@ -36,13 +37,14 @@ async function iniciarWebsockets(){
 
 
     const salaChat = ws.subscribe(`chat:advicer-${adviserSelected}`);
-    // salaChat.emit('estadoSala', {
-    //     disponible: true,
-    // });
 
-    // salaChat.on('solicitado', (data) => {
-    //     var text = '¡OYE! Tu tarea "' + '" ahora está vencida.';
-    // });
+    salaChat.on('esperandoSolicitud', (data) => {
+        $('.new-conversation-modal').addClass("active");
+    });
+
+    salaChat.on('solicitudAceptada', (data) => {
+        $('.new-conversation-modal').addClass("active");
+    });
 
     salaChat.on('recibirMensaje', (data) => {
 
@@ -53,16 +55,15 @@ async function iniciarWebsockets(){
         $('#send-msg-btn').prop("disabled", false);
         const {
             frase,
-            id_cliente,
+            id_consultor,
             fecha_envio,
         } = data.mensaje;
-        agregarMensajes(frase,id_cliente,null,fecha_envio);
+        agregarMensajes(frase,null,id_consultor,fecha_envio);
     });
 
 
     buttonEnvioChat.addEventListener('click',async (e) => {
         e.preventDefault();
-
         const inputMensaje = document.querySelector('#msg-input');
         const parameters = {
             mensaje: inputMensaje.value,
@@ -70,17 +71,12 @@ async function iniciarWebsockets(){
             adviserSelected
         };
 
-        salaChat.emit("enviarMensajeDesdeConsultor",{
+        salaChat.emit("enviarMensajeDesdeAdvicer",{
            ...parameters
         });
 
         $('#send-msg-btn').addClass("loading");
         $('#send-msg-btn').prop("disabled", true);
-
-        // ENVIO MENSAJE
-
-        // const mensajes = await getMessages();
-        // renderOldMessages(mensajes.mensajes);
     });
 }
 
@@ -91,11 +87,11 @@ async function getMessages(){
         }
     });
     const urlChat = "https://devdash.universopsiquico.com/api/chat";
-    const adviserSelected = getUrlSearch("adviser");
+    const customerSelected = getUrlSearch("customer");
     let result;
     try {
         result = await $.ajax({
-            url: `${urlChat}/cliente/${adviserSelected}`,
+            url: `${urlChat}/consultor/${customerSelected}`,
         })
         return result
     } catch (error) {
@@ -103,22 +99,4 @@ async function getMessages(){
     }
     return [];
 }
-
-// async function enviarMensaje(parameters){
-
-
-//     let result;
-//     try {
-//         result = await $.ajax({
-//             url: `${url}/cliente/${adviserSelected}/enviarMensaje`,
-//             method: 'POST',
-//             data: {...parameters}
-//         })
-//         return result['status'];
-//     } catch (error) {
-//         console.error(error)
-//     }
-//     return false;
-// }
-
 

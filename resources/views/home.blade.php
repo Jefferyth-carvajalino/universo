@@ -31,7 +31,6 @@
 						<div class="bi-3col-col content-text-banner">
 							<div class="image-logo-banner">
 								<img src="{{url("img/index/Esmeralda-2.png")}}" alt="">
-								<p>Encontrarás <b>tu respuesta</b></p>
 							</div>
 						</div>
 						<div class="bi-3col-col content-btn-ver-mas-banner">

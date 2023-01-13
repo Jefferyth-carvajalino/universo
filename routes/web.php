@@ -30,21 +30,22 @@ Route::resource('/descripcion-especialista', App\Http\Controllers\AdviserInterno
 Route::resource('/conocenos', App\Http\Controllers\ConocenosController::class);
 
 Route::prefix('dashboard-especialista')->group(function () {
-    Route::get('/perfil',[App\Http\Controllers\Advicer\HandlerController::class,'perfil']);
-    Route::get('/inbox',[App\Http\Controllers\Advicer\HandlerController::class,'inbox']);
-    Route::get('/mis-ingresos',[App\Http\Controllers\Advicer\HandlerController::class,'misIngresos']);
-    Route::get('/horoscopo',[App\Http\Controllers\Advicer\HandlerController::class,'horoscopo']);
-    Route::get('/chat',[App\Http\Controllers\Advicer\HandlerController::class,'chat']);
+	Route::get('/perfil', [App\Http\Controllers\Advicer\HandlerController::class, 'perfil']);
+	Route::get('/inbox', [App\Http\Controllers\Advicer\HandlerController::class, 'inbox']);
+	Route::get('/mis-ingresos', [App\Http\Controllers\Advicer\HandlerController::class, 'misIngresos']);
+	Route::get('/horoscopo', [App\Http\Controllers\Advicer\HandlerController::class, 'horoscopo']);
+	Route::get('/chat', [App\Http\Controllers\Advicer\HandlerController::class, 'chat']);
+	Route::get('/mis-servicios', [App\Http\Controllers\Advicer\HandlerController::class, 'servicios']);
 });
 
 Route::prefix('dashboard-consultor')->group(function () {
-    Route::get('/perfil',[App\Http\Controllers\Customer\HandlerController::class,'perfil']);
-    Route::get('/mi-horoscopo',[App\Http\Controllers\Customer\HandlerController::class,'miHoroscopo']);
-    Route::get('/horoscopo',[App\Http\Controllers\Customer\HandlerController::class,'horoscopo']);
-    Route::get('/mis-compras',[App\Http\Controllers\Customer\HandlerController::class,'misCompras']);
-    Route::get('/paquetes',[App\Http\Controllers\Customer\HandlerController::class,'comprarPaquetes']);
-    Route::get('/buscar-asesor',[App\Http\Controllers\Customer\HandlerController::class,'escogerAsesor']);
-    Route::get('/chat',[App\Http\Controllers\Customer\HandlerController::class,'chat']);
+	Route::get('/perfil', [App\Http\Controllers\Customer\HandlerController::class, 'perfil']);
+	Route::get('/mi-horoscopo', [App\Http\Controllers\Customer\HandlerController::class, 'miHoroscopo']);
+	Route::get('/horoscopo', [App\Http\Controllers\Customer\HandlerController::class, 'horoscopo']);
+	Route::get('/mis-compras', [App\Http\Controllers\Customer\HandlerController::class, 'misCompras']);
+	Route::get('/paquetes', [App\Http\Controllers\Customer\HandlerController::class, 'comprarPaquetes']);
+	Route::get('/buscar-asesor', [App\Http\Controllers\Customer\HandlerController::class, 'escogerAsesor']);
+	Route::get('/chat', [App\Http\Controllers\Customer\HandlerController::class, 'chat']);
 });
 
 

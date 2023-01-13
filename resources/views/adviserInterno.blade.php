@@ -50,8 +50,8 @@
 					</h3>
 					<div class="asesor-card">
 						<div class="ac-body">
-							<img src="/src/img/asesores/magenta.png" alt="" id="adviser-img">
-							<h6 id="adviser-name">Esmeralda </h6>
+							<img src="" alt="" id="adviser-img">
+							<h6 id="adviser-name"> </h6>
 							<div class="ac-score-container">
 								<div class="acs-container">
 									<div class="acs-n-container">
@@ -91,11 +91,7 @@
 							</div>
 							<p class="readings-and-price">
 								<span>
-									<b id="readings">2330 </b> Lecturas
-								</span>
-								<span>|</span>
-								<span>
-									<b id="price-per-minute">$1</b> USD/min
+									<b id="readings"> </b> Lecturas
 								</span>
 							</p>
 							<p id="adviser-state" class="desconectado">Desconectado</p>
@@ -111,7 +107,7 @@
 							<button class="go-to-chat" href="/log-in/">Chatear</button>
 						</div>
 						<h4>Sobre mi</h4>
-						<p id="description">Soy una mujer con grandes dones de videncia, tengo una gran trayectoria como tarotista y una conexión con los seres de luz, tengo más de 15 años ayudando a las personas con mis guías espirituales brindándoles consejos y soluciones a todos sus problemas, corrigiendo los errores del pasado y construyendo el presente y el futuro, te puedo ayudar con todo lo relacionado en el amor en separaciones en el divorcio con esa persona que tanto amas a que se solucionen las cosas y vuelvo a ti, te puedo ayudar con el tabaco con el tarot con mi videncia con mis guías espirituales y entre otras herramientas están a tu disposición para encontrar las respuestas a tus preguntas y solucionar y construir su estabilidad y tu felicidad en absoluto</p>
+						<p id="description">ntas están a tu disposición para encontrar las respuestas a tus preguntas y solucionar y construir su estabilidad y tu felicidad en absoluto</p>
 						<div class="av-container" id="adviser-video"><video src="/src/videos/especialistas/esmeralda.mp4
 
 " controls="" width="100%" height="auto"></video></div>
@@ -358,6 +354,9 @@
 			<div class="paginator-container">
 			<div class="paginationjs paginationjs-theme-blue"><div class="paginationjs-pages"><ul><li class="paginationjs-prev disabled"><a>«</a></li><li class="paginationjs-page J-paginationjs-page active" data-num="1"><a>1</a></li><li class="paginationjs-page J-paginationjs-page" data-num="2"><a href="">2</a></li><li class="paginationjs-page J-paginationjs-page" data-num="3"><a href="">3</a></li><li class="paginationjs-page J-paginationjs-page" data-num="4"><a href="">4</a></li><li class="paginationjs-page J-paginationjs-page" data-num="5"><a href="">5</a></li><li class="paginationjs-ellipsis disabled"><a>...</a></li><li class="paginationjs-page paginationjs-last J-paginationjs-page" data-num="18"><a href="">18</a></li><li class="paginationjs-next J-paginationjs-next" data-num="2" title="Next page"><a href="">»</a></li></ul></div></div></div>
 		</section>
+    @push('page_scripts')
+        <script type="module" src="{{asset('js/adviser-description-script.js')}}"></script>
+    @endpush
 	</main>
 @endsection
 @push('page_scripts')

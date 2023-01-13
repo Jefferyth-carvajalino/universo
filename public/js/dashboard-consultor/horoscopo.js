@@ -88,8 +88,6 @@ function generateAdvisersCards(universoCost, advisers = []) {
 							<b class="readings">${readings}</b>
 							lecturas
 						</span>
-						<span>|</span>
-						<span><b class="price-per-minute">$${adviserCost}</b> USD/min</span>
 					</p>
 					<p id="adviser-state" class="${adviserStateClass}">${adviserState}</p>
 				</div>

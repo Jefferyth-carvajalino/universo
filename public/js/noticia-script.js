@@ -1,32 +1,31 @@
+console.log("entra new");
 const newId = getUrlSearch("id");
 
-function getSpeciality() {
+function getNew() {
+	 const route = `https://devdash.universopsiquico.com/api/news?id=${newId}`;
 	$.ajax({
-		url: "/controller/news-controller.php",
-		data: {
-			req: "getNewItem",
-			new: newId,
-		},
-		method: "POST",
+		url: route,
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 
-	}).done(function (sRes) {
-		console.log(JSON.stringify(sRes));
+	}).done(function (data) {
 
-		if (sRes['res'] == "ok") {
+		let noticia = data.data[0]
 
-			// $('#new-name').text(`${sRes['msg']['name']}`);
-			$('#new-html-container').html(`${sRes['msg']['html']}`);
-			$('#new-img').html(`<img src="${sRes['msg']['img']}" alt="${sRes['msg']['name']}">`);
+		console.log("noticia", noticia);
 
-		} else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: sRes['msg']
-			});
-		}
+		$('#new-html-container').html(`${noticia['html']}`);
+		$('#new-img').html(`<img src="${noticia['img']}" alt="${noticia['name']}">`);
+		// if (sRes['res'] == "ok") {
+
+		// } else {
+		// 	Swal.fire({
+		// 		icon: 'error',
+		// 		title: 'Oops...',
+		// 		text: new
+		// 	});
+		// }
 
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 
@@ -57,4 +56,4 @@ function getSpeciality() {
 	});
 }
 
-getSpeciality();
+getNew();

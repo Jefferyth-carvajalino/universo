@@ -41,8 +41,6 @@ function generateAdvisersCards(universoCost, advisers = []) {
 							<b class="readings">${readings}</b>
 							lecturas
 						</span>
-						<span>|</span>
-						<span><b class="price-per-minute">$${adviserCost}</b> USD/min</span>
 					</p>
 					<p id="adviser-state" class="${adviserStateClass}">${adviserState}</p>
 				</div>
@@ -70,7 +68,7 @@ function renderCards(advisers) {
 
 async function filterAdvisers(searchWord) {
 	const advisers = await getAdvisers();
-	console.log('Advisers: ', advisers);
+	// console.log('Advisers: ', advisers);
 	let searchedAdvisers = advisers.filter(function ({ nickname }) {
 		return nickname.toLowerCase().indexOf(searchWord.toLowerCase()) > -1;
 	});
@@ -134,20 +132,20 @@ $('#search-adviser-form').submit(function (e) {
 
 function getAdvisers() {
 	return new Promise((resolve, reject) => {
-        $.ajaxSetup({
-            headers: {
-                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
-            }
-       });
+		$.ajaxSetup({
+			headers: {
+				'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+			}
+		});
 
 		$.ajax({
 			url: "https://devdash.universopsiquico.com/api/getAdvicers",
 			method: "GET",
 			dataType: "JSON",
 			cache: false
-		}).done(function ({data}) {
-			console.log("sresponse", data);
-				resolve(data);
+		}).done(function ({ data }) {
+			// console.log("sresponse", data);
+			resolve(data);
 			// if (sResponse['res'] == "ok") {
 			// 	console.log("sresponse", data);
 
@@ -351,7 +349,7 @@ function enviarMsj() {
 
 	grecaptcha.execute("6Lfhl9IZAAAAAA5iSF520_ou02EL2zI6xVgxUQm7", { action: "homepage" }).then(function (token) {
 		g_token = token;
-		console.log(g_token);
+		// console.log(g_token);
 	});
 
 	let name = $("#cf-name").val();
@@ -383,10 +381,10 @@ function enviarMsj() {
 			cache: false
 		})
 			.done(function (sResponse) {
-				console.log(sResponse);
+				// console.log(sResponse);
 				if (sResponse["respuesta"] == "ok") {
 					if (sResponse["mensaje"] != "grecaptcha-error") {
-						console.log(sResponse);
+						// console.log(sResponse);
 						Swal.fire({
 							position: 'center',
 							icon: "success",
@@ -475,7 +473,7 @@ $("#bnn-der-paq").click(function () {
 		// autoWidth: true,
 		autoplayTimeout: 5000,
 		autoplaySpeed: 5000,
-		autoHeight: true,
+		// autoHeight: true,
 		autoplayHoverPause: true,
 		responsive: {
 			0: {

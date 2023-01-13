@@ -45,6 +45,18 @@
 			</a>
 		</li>
 
+		<li>
+			<a href="/dashboard-especialista/mis-servicios/" id="horoscopo-btn">
+				<span>
+					<img src="{{asset('img/dashboard/i-chat.svg')}}" alt="">
+				</span>
+				<span>
+					Mis servicios
+				</span>
+				<p id="cant-hor"></p>
+			</a>
+		</li>
+
 		<li class="hidden" id="chat-link">
 			<?php //echo (isset($_SESSION['activeChat'])) ? '<a href="/dashboard-especialista/chat/?chatId=' . $_SESSION['activeChat'] . '">' : '<a href="#">'; ?>
 			<span>
