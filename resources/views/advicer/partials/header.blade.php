@@ -63,7 +63,7 @@
 </header>
 
 <audio id="new-chat-audio" style="display: none;">
-	<source src="/src/audio/new-chat-song.mp3" type="audio/mp3">
+	<source src="{{asset('src/audio/new-chat-song.mp3')}}" type="audio/mp3">
 </audio>
 
 <div class="new-conversation-modal">

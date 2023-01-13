@@ -309,18 +309,6 @@ if (user !== null) {
 	}
 }
 
-$('#btn-accept').click(function (e) {
-	e.preventDefault();
-	const chatId = parseInt(localStorage.getItem("adviserActiveChatId"));
-	acceptChat({ adviserId: user.id, chatId: chatId, adviserNickname: user.nickname });
-});
-
-$('#btn-deny').click(function (e) {
-	e.preventDefault();
-	const chatId = parseInt(localStorage.getItem("adviserActiveChatId"));
-	denyChat({ chatId: chatId });
-	checkForNewChat({ adviserId: user.id });
-});
 
 /**
  * these twice functions allow customForm functionality
