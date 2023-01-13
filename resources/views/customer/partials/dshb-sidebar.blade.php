@@ -57,6 +57,18 @@
 		</li>
 
 		<li>
+			<a href="/dashboard-consultor/mis-servicios/" id="horoscopo-btn">
+				<span>
+					<img src="{{asset('img/dashboard/i-chat.svg')}}" alt="">
+				</span>
+				<span>
+					Mis servicios
+				</span>
+				<p id="cant-hor"></p>
+			</a>
+		</li>
+
+		<li>
 			<a href="/dashboard-consultor/perfil/">
 				<span>
 					<img src="{{asset('img/dashboard/i-perfil.svg')}}" alt="">

@@ -1,4 +1,4 @@
-@extends('advicer.layouts.app')
+@extends('customer.layouts.app')
 @push('styles_header')
     <link rel="stylesheet" href="{{asset('css/dash-advicer/dshb-perfil-especialista.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dshb-mi-servicio.css')}}">
@@ -44,7 +44,7 @@ Perfil
 						Link de pago:
 					</span>
 					<span>
-						http://127.0.0.1:8000/dashboard-especialista/mis-servicios/
+						<a href="http://127.0.0.1:8000/dashboard-consultor/mis-servicios/" target="_blank">http://127.0.0.1:8000/dashboard-consultor/mis-servicios/</a>
 					</span>
 				</span>
 
@@ -57,7 +57,6 @@ Perfil
 						<span class="estado-pago">Pago</span>
 						<span class="estado-nopago">No pago</span>
 					</div>
-					<a class="btn-responder-servicio" href="#">Responder</a>
 				</div>
 			</div>			
 		</div>

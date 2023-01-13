@@ -8,7 +8,7 @@
 Perfil
 @endsection
 @section('content')
-<div class="popup showing" id="servicios-c-popup">
+<div class="popup " id="servicios-c-popup">
 	<div class="popup-container">
 		<button class="btn-close-popup" id="btn-close-popup-servicios-c">
 			<svg style="width:28px;height:28px" viewBox="0 0 24 24">
