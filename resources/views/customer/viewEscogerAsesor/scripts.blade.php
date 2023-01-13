@@ -113,7 +113,7 @@
 
     function renderCards(advisers) {
         $('#advisers-box').html("");
-
+        console.log(advisers)
         $('.paginator-container').pagination({
             dataSource: advisers,
             pageSize: 8,

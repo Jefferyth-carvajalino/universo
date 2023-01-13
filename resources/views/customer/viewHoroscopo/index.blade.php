@@ -8,21 +8,25 @@ Perfil
 @endsection
 @section('content')
 <div id="ba-container">
-					<div class="advisers-list-component">
+    <div class="advisers-list-component">
 
-						<div id="content-description-horoscope">
-							<h2>
-								HORÓSCOPO
-							</h2>
-							<h2>
-								Escoge tu asesor favorito para conocer más de tu horóscopo.
-							</h2>
-						</div>
+        <div id="content-description-horoscope">
+            <h2>
+                HORÓSCOPO
+            </h2>
+            <h2>
+                Escoge tu asesor favorito para conocer más de tu horóscopo.
+            </h2>
+        </div>
 
-						
-					{{-- @include('layouts.nuestrosAsesoresHoroscopo') --}}
+        <div class="na-body" id="advisers-box"></div>
+
+        <div class="paginator-container"></div>
+    </div>
+
+
 				</div>
 @endsection
 @push('scripts_footer')
-    @include('customer.viewPerfil.scripts')
+    @include('customer.viewHoroscopo.scripts')
 @endpush

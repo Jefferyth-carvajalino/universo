@@ -19,7 +19,7 @@ function getAdviser() {
 			if (data.success == true) {
 				resolve(data.data[0]);
 				console.log("entra resol");
-				
+
 			} else {
 				reject(data.message);
 				console.log("entra reye");

@@ -48,3 +48,7 @@ Route::prefix('dashboard-consultor')->group(function () {
 	Route::get('/chat', [App\Http\Controllers\Customer\HandlerController::class, 'chat']);
 	Route::get('/mis-servicios', [App\Http\Controllers\Customer\HandlerController::class, 'servicios']);
 });
+
+
+Route::get('/c',[App\Http\Controllers\Advicer\HandlerController::class,'prueba_chat']);
+Route::get('/c-advicer',[App\Http\Controllers\Advicer\HandlerController::class,'prueba_chat2']);

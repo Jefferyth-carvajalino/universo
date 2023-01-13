@@ -210,14 +210,15 @@ function getBalance() {
 		cache: false
 
 	}).done(function (sResponse) {
+
 		if (sResponse['res'] == "ok") {
-
 			let user = JSON.parse(localStorage.getItem('user'));
-
-			user["total_amount_purchases"] = sResponse['msg'],
-
-				localStorage.setItem('user', JSON.stringify(user));
+			user["total_amount_purchases"] = sResponse['msg'][0]['balance'],
+			localStorage.setItem('user', JSON.stringify(user));
 		} else {
+			if(sResponse["status"] == "Token is Invalid"){
+				localStorage.removeItem('user');
+			}
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -308,18 +309,6 @@ if (user !== null) {
 	}
 }
 
-$('#btn-accept').click(function (e) {
-	e.preventDefault();
-	const chatId = parseInt(localStorage.getItem("adviserActiveChatId"));
-	acceptChat({ adviserId: user.id, chatId: chatId, adviserNickname: user.nickname });
-});
-
-$('#btn-deny').click(function (e) {
-	e.preventDefault();
-	const chatId = parseInt(localStorage.getItem("adviserActiveChatId"));
-	denyChat({ chatId: chatId });
-	checkForNewChat({ adviserId: user.id });
-});
 
 /**
  * these twice functions allow customForm functionality
@@ -401,7 +390,7 @@ $('#btn-close-popup-servicios-c').click(function (e) {
 
 $('#btn-servicios').click(function (e) {
 	console.log("entra serv");
-	// $('#servicios-c-popup').addClass('showing');
+	$('#servicios-c-popup').addClass('showing');
 })
 
 $('#btn-close-popup-index').click(function (e) {
@@ -628,10 +617,10 @@ function getTokenNotification() {
 					if (serviceWorker.state == "activated") {
 
 						console.log("sw already activated - Do watever needed here");
-						messaging.getToken().then((currentToken) => {
-							console.log("mensaje tok", currentToken);
-							localStorage.setItem("notificationToken", currentToken);
-						});
+						// messaging.getToken().then((currentToken) => {
+						// 	console.log("mensaje tok", currentToken);
+						// 	localStorage.setItem("notificationToken", currentToken);
+						// });
 					}
 
 					serviceWorker.addEventListener("statechange", function (e) {

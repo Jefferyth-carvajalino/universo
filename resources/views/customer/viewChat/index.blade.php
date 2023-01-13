@@ -205,5 +205,12 @@ Perfil
 				</div>
 @endsection
 @push('scripts_footer')
-    @include('customer.viewPerfil.scripts')
+    <script src="{{asset('libs/emojionearea/emojione.min.js')}}"></script>
+	<script src="{{asset('libs/emojionearea/emojionearea.min.js')}}"></script>
+	<script src="{{asset('libs/dropify/js/dropify.min.js')}}"></script>
+    <script src="https://unpkg.com/regenerator-runtime@0.13.9/runtime.js"></script>
+    <script src="https://unpkg.com/@adonisjs/websocket-client"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="{{asset('js/chat/chat-manipulacion.js')}}"></script>
+    <script type="text/babel" src="{{asset('js/chat/chat-cliente.js')}}"></script>
 @endpush

@@ -33,6 +33,16 @@ class HandlerController extends Controller
         return view('advicer.viewChat.index',$backpack);
     }
 
+
+    public function prueba_chat(){
+        $backpack = [];
+        return view('advicer.viewChat.prueba',$backpack);
+    }
+
+    public function prueba_chat2(){
+        $backpack = [];
+        return view('advicer.viewChat.prueba2',$backpack);
+    }
 	public function servicios()
 	{
 		$backpack = [];

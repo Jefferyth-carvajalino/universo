@@ -163,7 +163,7 @@ Perfil
 								</a>
 							</div>
 
-							
+
 
 								<a href="#" id="btn-servicios">
 									<svg style="width:28px;height:28px" viewBox="0 0 24 24">
@@ -175,11 +175,9 @@ Perfil
 				</div>
 @endsection
 
-@push('page_scripts')
-	<script src="{{asset('js/dshb-commons-script.js')}}"></script>
-	<script src="{{asset('js/dashboard-especialista/chat-script.js')}}"></script>
-	
-@endpush
+
 @push('scripts_footer')
-    @include('advicer.viewChat.scripts')
+    <script src="{{asset('libs/emojionearea/emojione.min.js')}}"></script>
+    <script src="{{asset('libs/emojionearea/emojionearea.min.js')}}"></script>
+    <script src="{{asset('libs/dropify/js/dropify.min.js')}}"></script>
 @endpush

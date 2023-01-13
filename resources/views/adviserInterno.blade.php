@@ -156,7 +156,7 @@
 						</div>
 					</div>
 					<div class="comment-i-body">
-						<p class="comment-text">Muy rápida y concreta, le agradezco, volveré aquí 
+						<p class="comment-text">Muy rápida y concreta, le agradezco, volveré aquí
 						</p>
 
 						<div class="comment-date-container">
@@ -359,3 +359,6 @@
     @endpush
 	</main>
 @endsection
+@push('page_scripts')
+    <script type="module" src="{{asset('js/adviser-description-script.js')}}"></script>
+@endpush
