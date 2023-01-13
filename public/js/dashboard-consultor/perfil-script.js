@@ -1,11 +1,12 @@
 function getCountries() {
 	return new Promise((resolve, reject) => {
+        const url = "https://devdash.universopsiquico.com/api/getAllCountries";
 		$.ajax({
-			url: "/controller/countries-controller.php",
-			data: {
-				req: "getAllCountries",
-			},
-			method: "POST",
+			url,
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            },
+			method: "GET",
 			dataType: "JSON",
 			cache: false
 
@@ -49,12 +50,13 @@ function getCountries() {
 
 function getUser() {
 	return new Promise((resolve, reject) => {
+        const url = "https://devdash.universopsiquico.com/api/customer/getCostumer";
 		$.ajax({
-			url: "/controller/dshb-perfil-consultor-controller.php",
-			data: {
-				req: "getConsultor",
-			},
-			method: "POST",
+			url,
+			method: "GET",
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            },
 			dataType: "JSON",
 			cache: false
 

@@ -2,21 +2,22 @@ let advisers = [];
 
 function getAdvisers() {
 	return new Promise((resolve, reject) => {
+        const url = "https://devdash.universopsiquico.com/api/getAdvicers";
 		$.ajax({
-			url: "/controller/advisers-controller.php",
-			data: {
-				req: "getAdvisers",
-			},
-			method: "POST",
+			url,
+			method: "GET",
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            },
 			dataType: "JSON",
 			cache: false
 		}).done(function (sResponse) {
-			if (sResponse['res'] == "ok") {
-				resolve(sResponse['msg']);
+			// if (sResponse['res'] == "ok") {
+				resolve(sResponse['data']);
 
-			} else {
-				reject(sResponse['msg']);
-			}
+			// } else {
+			// 	reject(sResponse['msg']);
+			// }
 
 		}).fail(function (jqXHR, textStatus, errorThrown) {
 
@@ -103,11 +104,13 @@ async function main() {
 	try {
 		const universoCost = 0.6;
 		advisers = await getAdvisers();
+        console.log(advisers)
 		$('.paginator-container').pagination({
 			dataSource: advisers,
 			pageSize: 8,
 			className: 'paginationjs-theme-blue',
 			callback: function (data, pagination) {
+                console.log(data)
 				const html = generateAdvisersCards(universoCost, data);
 				$('#advisers-box').html(html);
 
@@ -133,6 +136,7 @@ async function main() {
 		});
 	}
 }
+
 main();
 
 $('#search-adviser-input').keyup(function (e) {

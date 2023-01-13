@@ -62,6 +62,7 @@
 	<script src="{{url("libs/owl-carousel/owl.carousel.min.js")}}"></script>
 	<script src="{{url("libs/pagination/pagination.min.js")}}"></script>
 	<script src="{{url('js/index-script.js')}}"></script>
+    <script src="{{url('js/app.js')}}"></script>
 	<script src="{{url('js/commons-script.js')}}"></script>
 	<script>
 		let url = "{{url('')}}";

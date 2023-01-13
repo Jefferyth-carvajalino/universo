@@ -259,8 +259,7 @@ $('#login-form').submit(async function (e) {
 			const user = await login({ email:username, password });
 			$('#login-username').val("");
 			$('#login-password').val("");
-
-			localStorage.setItem('user', JSON.stringify(user));
+			localStorage.setItem('user', JSON.stringify({...user}));
 			localStorage.setItem("countHoroscope", 0);
 
 			console.log("USER ROL: ", typeof (user.rol));

@@ -6,11 +6,12 @@ const ADVISER_CONNECTION_STATUS = {
 
 function getAdviser() {
 	return new Promise((resolve, reject) => {
+        console.log("@holi",adviser)
+        const url = "https://devdash.universopsiquico.com/api/getAdvicerById"
 		$.ajax({
-			url: "/controller/advisers-controller.php",
+			url,
 			data: {
-				req: "getAdviser",
-				adviser: adviser,
+				advicer: adviser,
 			},
 			method: "POST",
 			dataType: "JSON",

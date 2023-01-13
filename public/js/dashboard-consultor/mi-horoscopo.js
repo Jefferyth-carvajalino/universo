@@ -1,14 +1,16 @@
 
 function getHoroscopeRequestsBycustomerId() {
+    const url = "https://devdash.universopsiquico.com/api/customer/getHoroscopeRequestsByCustomerId"
 	$.ajax({
-		url: "/controller/horoscope-requests-controller.php",
-		data: {
-			req: "getHoroscopeRequestsByCustomerId",
-		},
-		method: "POST",
+		url,
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        },
+		method: "GET",
 		dataType: "JSON",
 		cache: false
 	}).done(function (sResponse) {
+        console.log(sResponse)
 		if (sResponse['res'] == "ok") {
 			if ((sResponse['msg']).length <= 0) {
 				$('#horoscope-container').append("<h2 class='text-center'>No hay horóscopos pendientes</h2>");
@@ -26,7 +28,7 @@ function getHoroscopeRequestsBycustomerId() {
 								${horoscope.nickname}
 							</span>
 						</span>
-	
+
 						<span>
 							<span>
 								FECHA DE NACIMIETO:
@@ -35,7 +37,7 @@ function getHoroscopeRequestsBycustomerId() {
 								${horoscope.message}
 							</span>
 						</span>
-	
+
 						<span>
 							<span>
 								FECHA:

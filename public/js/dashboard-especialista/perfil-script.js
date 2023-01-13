@@ -6,7 +6,7 @@ function getCountries() {
         }
     });
 
-    const url = "https://devdash.universopsiquico.com/api/advicer/getAllCountries";
+    const url = "https://devdash.universopsiquico.com/api/getAllCountries";
     $.ajax({
         url,
         method: "GET",

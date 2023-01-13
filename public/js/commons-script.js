@@ -210,14 +210,15 @@ function getBalance() {
 		cache: false
 
 	}).done(function (sResponse) {
+
 		if (sResponse['res'] == "ok") {
-
 			let user = JSON.parse(localStorage.getItem('user'));
-
-			user["total_amount_purchases"] = sResponse['msg'],
-
-				localStorage.setItem('user', JSON.stringify(user));
+			user["total_amount_purchases"] = sResponse['msg'][0]['balance'],
+			localStorage.setItem('user', JSON.stringify(user));
 		} else {
+			if(sResponse["status"] == "Token is Invalid"){
+				localStorage.removeItem('user');
+			}
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -619,10 +620,10 @@ function getTokenNotification() {
 					if (serviceWorker.state == "activated") {
 
 						console.log("sw already activated - Do watever needed here");
-						messaging.getToken().then((currentToken) => {
-							console.log("mensaje tok", currentToken);
-							localStorage.setItem("notificationToken", currentToken);
-						});
+						// messaging.getToken().then((currentToken) => {
+						// 	console.log("mensaje tok", currentToken);
+						// 	localStorage.setItem("notificationToken", currentToken);
+						// });
 					}
 
 					serviceWorker.addEventListener("statechange", function (e) {

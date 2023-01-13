@@ -25,15 +25,21 @@ function renderBubbleMessage({ kindOfMsg, message, sender, date }) {
 	$('#cmb-bubbles-container').stop().animate({ scrollTop: $('#cmb-bubbles-container')[0].scrollHeight }, 0);
 }
 
+
 function showImgOnModal(element) {
 	$('#simg-modal').addClass('showing');
 	$('#img-modal').attr('src', $(element).attr('src'));
 }
-
+const url = "https://devdash.universopsiquico.com/api/chat/handler";
+$.ajaxSetup({
+    headers: {
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+    }
+});
 function sendMessage(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "sendMsg" },
 			method: "POST",
 			dataType: "JSON",
@@ -80,7 +86,7 @@ function sendMessage(dataToSend) {
 function createChat(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "createChat" },
 			method: "POST",
 			dataType: "JSON",
@@ -126,7 +132,7 @@ function createChat(dataToSend) {
 function getChatId(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "getChatId" },
 			method: "POST",
 			dataType: "JSON",
@@ -172,7 +178,7 @@ function getChatId(dataToSend) {
 function getChatState(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "getChatState" },
 			method: "POST",
 			dataType: "JSON",
@@ -243,7 +249,7 @@ function uploadImage(dataSend) {
 function getAdviserData(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "getRecipientData" },
 			method: "POST",
 			dataType: "JSON",
@@ -288,7 +294,7 @@ function getAdviserData(dataToSend) {
 function sendChatRate(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "sendChatRate" },
 			method: "POST",
 			dataType: "JSON",
@@ -380,7 +386,7 @@ function sendBadRateMessage(dataToSend) {
 function cancelRequestToChat(dataToSend) {
 	return new Promise((resolve, reject) => {
 		$.ajax({
-			url: "/controller/chat-controller.php",
+			url,
 			data: { ...dataToSend, req: "denyChat" },
 			method: "POST",
 			dataType: "JSON",
@@ -451,6 +457,7 @@ async function main() {
 	}
 
 	chatId = await createChat({ adviserId: adviserSelected, customerId: user.id });
+    console.log(chatId);
 	$('.loader-wrapper').addClass("active");
 
 	do {
@@ -607,6 +614,8 @@ async function main() {
 	});
 
 }
+
+
 main();
 
 $("#msg-input").emojioneArea({

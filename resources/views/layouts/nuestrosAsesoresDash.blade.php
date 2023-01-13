@@ -31,17 +31,7 @@
         </div>
         <div class="paginator-container">
             <div class="paginationjs paginationjs-theme-blue">
-                <div class="paginationjs-pages">
-                    <ul>
-                        <li class="paginationjs-prev disabled"><a>«</a></li>
-                        <li class="paginationjs-page J-paginationjs-page active" data-num="1"><a>1</a></li>
-                        <li class="paginationjs-page J-paginationjs-page" data-num="2"><a href="">2</a></li>
-                        <li class="paginationjs-page J-paginationjs-page" data-num="3"><a href="">3</a></li>
-                        <li class="paginationjs-page J-paginationjs-page" data-num="4"><a href="">4</a></li>
-                        <li class="paginationjs-next J-paginationjs-next" data-num="2" title="Next page"><a
-                                href="">»</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
 

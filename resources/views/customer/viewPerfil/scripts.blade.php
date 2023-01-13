@@ -1,1 +1,1 @@
-<script src="{{asset('js/dashboard-especialista/perfil-script.js')}}"></script>
+<script src="{{asset('js/dashboard-consultor/perfil-script.js')}}"></script>
