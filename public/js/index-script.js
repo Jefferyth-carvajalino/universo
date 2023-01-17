@@ -258,9 +258,7 @@ function getPackages() {
 
 			} else {
 				console.log('Uncaught Error: ' + jqXHR.responseText);
-
 			}
-
 		});
 	});
 }
@@ -523,7 +521,7 @@ $("#bnn-der-paq").click(function () {
 		const advisers = await getAdvisers();
 		loadAdvisersCards();
 
-		const packages = await getPackages();
+		// const packages = await getPackages();
 		const packageCards = generatePackageCards(packages);
 		$('#enuniverso-carousel').html(packageCards);
 

@@ -692,7 +692,9 @@ $('#file-btn').click(function (e) {
 
 $('#btn-close-uplimglayout').click(function () {
 	$('.upload-img-layout').removeClass("active");
-});
+})
+
+;
 $('#btn-close-popup-three-minutes').click(function () {
 	$('#three-minutes-popup').removeClass("showing");
 });

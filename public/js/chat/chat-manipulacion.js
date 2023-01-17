@@ -2,30 +2,47 @@ let timerTimeout = null;
 let timerHours = 0;
 let timerMinutes = 0;
 let timerSeconds = 0;
-function agregarMensajes(message,isCliente,isConsultor,date){
+function agregarMensajes(message,isCliente,isConsultor,date,tipo){
     // console.log(isCliente,isConsultor)
     isCliente = !!isCliente;
     isConsultor = !!isConsultor;
     let bubble = '';
-    let writer = "cwb-me";
-    if(isConsultor){
-        writer = "Adviser";
+    let writer;
+
+    if(sessionStorage.getItem('mode') == 'ADVICER'){
+       if(isConsultor){
+        writer = 'cwb-me';
+       }
     }
 
-    bubble = `<div class="cw-bubble-row  ${writer} ">
-                    <p class="cw-bubble">${message}</p>
-                    <span class="bubble-time">${date}</span>
+    if(sessionStorage.getItem('mode') == 'CLIENT'){
+        if(isCliente){
+         writer = 'cwb-me';
+        }
+     }
+
+
+
+
+
+    if(tipo == 1){
+        bubble = `<div class="cw-bubble-row  ${writer} ">
+            <p class="cw-bubble">${message}</p>
+                <span class="bubble-time">${date}</span>
             </div >`;
-	// } else if (parseInt(kindOfMsg) === 1) {
-        /*
-		bubble = `<div class="cw-bubble-row ${writer}">
-								<div class="cw-bubble-img-container">
-									<img src="${message}" class="chat-img" onclick="showImgOnModal(this)" >
-								</div>
-								<span class="bubble-time">${date}</span>
-							</div >`;
-                            */
-	// }
+    }
+
+    if(tipo == 2){
+
+        message = `https://devdash.universopsiquico.com/api/chat/verImagenChat/${message}`;
+        bubble = `<div class="cw-bubble-row ${writer}">
+                    <div class="cw-bubble-img-container">
+                        <img src="${message}" class="chat-img" onclick="showImgOnModal(this)" >
+                    </div>
+                    <span class="bubble-time">${date}</span>
+                </div >`;
+    }
+
 	$('#cmb-bubbles-container').append(bubble);
 	$('#cmb-bubbles-container').stop().animate({ scrollTop: $('#cmb-bubbles-container')[0].scrollHeight }, 0);
 }
@@ -45,7 +62,7 @@ function renderOldMessages(oldMessages) {
 			$('#cmb-bubbles-container').stop().animate({ scrollTop: $('#cmb-bubbles-container')[0].scrollHeight }, 0);
 			oldMessagesDates.push(messageFullDate);
 		}
-		agregarMensajes(message['frase'],message['id_cliente'],message['id_consultor'],message['fecha_envio']);
+		agregarMensajes(message['frase'],message['id_cliente'],message['id_consultor'],message['fecha_envio'],message['tipo']);
 	});
 }
 
@@ -92,3 +109,31 @@ function renderTimer() {
 function getDuracionActual(){
     return $('#timer-hours').text() +":" +  $('#timer-minutes').text()+":"+$('#timer-seconds').text();
 }
+
+$('#file-btn').click(function (e) {
+	e.preventDefault();
+	$('.upload-img-layout').addClass("active");
+});
+
+
+function getBase64(file, event) {
+    console.log("hola mundo");
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+        console.log(reader);
+        event(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+ }
+
+
+ function showImgOnModal(element) {
+	$('#simg-modal').addClass('showing');
+	$('#img-modal').attr('src', $(element).attr('src'));
+}
+
+
+

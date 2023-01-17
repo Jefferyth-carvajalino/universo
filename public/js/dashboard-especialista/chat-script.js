@@ -537,7 +537,6 @@ function finishChat(dataToSend) {
 async function finishChatRequest({ finishedBy = null, isCustomerOutOfFounds = false }) {
 	if (finishedBy) {
 		const durationTime = `${(timerHours < 10) ? '0' + timerHours : timerHours}:${(timerMinutes < 10) ? '0' + timerMinutes : timerMinutes}:${(timerSeconds < 10) ? '0' + timerSeconds : timerSeconds}`
-
 		clearTimeout(timerTimeout);
 		timerTimeout = null;
 		await finishChat({ chatId: chatId, totalPrice: customerChatTotalCost, adviserProfit: adviserProfit });

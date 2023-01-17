@@ -1,6 +1,6 @@
 // PushManager.logConsole = true;
 // const PUSHER_APP_KEY = "ad597f195d0b287738bc"; // Development
-const PUSHER_APP_KEY = "61e3675c3418e09804b8"; // Production
+// const PUSHER_APP_KEY = "61e3675c3418e09804b8"; // Production
 
 let user = JSON.parse(localStorage.getItem('user'));
 let newChatAudio = document.getElementById('new-chat-audio');
@@ -53,129 +53,6 @@ function logout() {
 			}
 
 		});
-	});
-}
-
-function checkForNewChat(dataToSend) {
-	if (withNewChat) {
-		timeLapsed++;
-	} else {
-		timeLapsed = 0;
-	}
-
-	$.ajax({
-		url: "/controller/chat-controller.php",
-		data: { ...dataToSend, req: "getPendingChat" },
-		method: "POST",
-		dataType: "JSON",
-		cache: false
-
-	}).done(function (sResponse) {
-		if (sResponse['res'] === "ok") {
-			if (sResponse['withNewChat'] === "yes") {
-				withNewChat = true;
-				$('.new-conversation-modal').addClass("active");
-				// console.log("customerName: ", sResponse['chat']);
-				const { chatId, customerName } = sResponse['chat'];
-				$('#new-conversation-msg').text(`${customerName} desea iniciar una conversación contigo.`);
-				localStorage.setItem("adviserActiveChatId", chatId);
-
-
-				if (timeLapsed === 0) {
-					getNotification(true)
-				}
-
-				if (audioPlayedCount < 3) {
-					newChatAudio.play();
-
-				} else {
-					denyChat({ chatId: chatId });
-					audioPlayedCount = 0;
-				}
-
-			} else {
-				withNewChat = false;
-				$('.new-conversation-modal').removeClass("active");
-				getNotification(false)
-			}
-
-			setTimeout(() => {
-				checkForNewChat(dataToSend);
-			}, 500);
-
-		} else {
-			console.warn("[CHECK FOR NEW CHAT]", sResponse['msg']);
-		}
-
-	}).fail(function (jqXHR, textStatus, errorThrown) {
-
-		if (jqXHR.status === 0) {
-			console.log('Not connect: Verify Network.');
-
-		} else if (jqXHR.status == 404) {
-			console.log('Requested page not found [404]');
-
-		} else if (jqXHR.status == 500) {
-			console.log('Internal Server Error [500].');
-
-		} else if (textStatus === 'parsererror') {
-			console.log('Requested JSON parse failed.');
-
-		} else if (textStatus === 'timeout') {
-			console.log('Time out error.');
-
-		} else if (textStatus === 'abort') {
-			console.log('Ajax request aborted.');
-
-		} else {
-			console.log('Uncaught Error: ' + jqXHR.responseText);
-
-		}
-
-	});
-}
-
-function acceptChat(dataToSend) {
-	$.ajax({
-		url: "/controller/chat-controller.php",
-		data: { ...dataToSend, req: "acceptChat" },
-		method: "POST",
-		dataType: "JSON",
-		cache: false
-
-	}).done(function (sResponse) {
-		if (sResponse['res'] === "ok") {
-			window.location.href = `/dashboard-especialista/chat/?chatId=${dataToSend.chatId}`;
-
-		} else {
-			console.warn("[ACCEPT CHAT ERROR]", sResponse['msg']);
-		}
-
-	}).fail(function (jqXHR, textStatus, errorThrown) {
-
-		if (jqXHR.status === 0) {
-			console.log('Not connect: Verify Network.');
-
-		} else if (jqXHR.status == 404) {
-			console.log('Requested page not found [404]');
-
-		} else if (jqXHR.status == 500) {
-			console.log('Internal Server Error [500].');
-
-		} else if (textStatus === 'parsererror') {
-			console.log('Requested JSON parse failed.');
-
-		} else if (textStatus === 'timeout') {
-			console.log('Time out error.');
-
-		} else if (textStatus === 'abort') {
-			console.log('Ajax request aborted.');
-
-		} else {
-			console.log('Uncaught Error: ' + jqXHR.responseText);
-
-		}
-
 	});
 }
 
@@ -254,57 +131,11 @@ function getBalance() {
 	});
 }
 
-function denyChat(dataToSend) {
-	// console.log("denyChat", dataToSend);
-	$.ajax({
-		url: "/controller/chat-controller.php",
-		data: { ...dataToSend, req: "denyChat" },
-		method: "POST",
-		dataType: "JSON",
-		cache: false
-
-	}).done(function (sResponse) {
-		if (sResponse['res'] === "ok") {
-			localStorage.setItem("adviserActiveChatId", "");
-			// localStorage.removeItem("adviserActiveChatId");
-			$('.new-conversation-modal').removeClass("active");
-
-		} else {
-			console.warn("[DENY CHAT ERROR]", sResponse['msg']);
-		}
-
-	}).fail(function (jqXHR, textStatus, errorThrown) {
-
-		if (jqXHR.status === 0) {
-			console.log('Not connect: Verify Network.');
-
-		} else if (jqXHR.status == 404) {
-			console.log('Requested page not found [404]');
-
-		} else if (jqXHR.status == 500) {
-			console.log('Internal Server Error [500].');
-
-		} else if (textStatus === 'parsererror') {
-			console.log('Requested JSON parse failed.');
-
-		} else if (textStatus === 'timeout') {
-			console.log('Time out error.');
-
-		} else if (textStatus === 'abort') {
-			console.log('Ajax request aborted.');
-
-		} else {
-			console.log('Uncaught Error: ' + jqXHR.responseText);
-
-		}
-
-	});
-}
 
 if (user !== null) {
 	if (user.rol === "adviser") {
 		if ((localStorage.getItem("adviserActiveChatId") === null) || (localStorage.getItem("adviserActiveChatId") === "")) {
-			checkForNewChat({ adviserId: user.id });
+			// checkForNewChat({ adviserId: user.id });
 		}
 	}
 }
@@ -462,56 +293,6 @@ async function sessionTimerManager(timer) {
 	}
 }
 
-// function getTokenNotification() {
-// 	$.ajax({
-// 		url: "/controller/customer-controller.php",
-// 		data: {
-// 			req: "getTokenNotification",
-// 		},
-// 		method: "POST",
-// 		dataType: "JSON",
-// 		cache: false
-
-// 	}).done(function (sResponse) {
-// 		if (sResponse['res'] == "ok") {
-
-// 			localStorage.setItem("notificationToken", sResponse['msg']);
-
-// 		} else {
-// 			Swal.fire({
-// 				icon: 'error',
-// 				title: 'Oops...',
-// 				text: sResponse['msg']
-// 			});
-// 		}
-
-// 	}).fail(function (jqXHR, textStatus, errorThrown) {
-
-// 		if (jqXHR.status === 0) {
-// 			console.log('Not connect: Verify Network.');
-
-// 		} else if (jqXHR.status == 404) {
-// 			console.log('Requested page not found [404]');
-
-// 		} else if (jqXHR.status == 500) {
-// 			console.log('Internal Server Error [500].');
-
-// 		} else if (textStatus === 'parsererror') {
-// 			console.log('Requested JSON parse failed.');
-
-// 		} else if (textStatus === 'timeout') {
-// 			console.log('Time out error.');
-
-// 		} else if (textStatus === 'abort') {
-// 			console.log('Ajax request aborted.');
-
-// 		} else {
-// 			console.log('Uncaught Error: ' + jqXHR.responseText);
-
-// 		}
-
-// 	});
-// }
 
 let timer = null;
 let isUserActive = true;

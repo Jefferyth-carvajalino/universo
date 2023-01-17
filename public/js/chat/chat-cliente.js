@@ -1,12 +1,14 @@
 const buttonEnvioChat = document.querySelector('#send-msg-btn');
 const userCustomer = JSON.parse(localStorage.getItem('user'));
 const chatAudio = document.getElementById('chat-audio');
-let finalizacionChat = false;
+const formCalificacion = document.querySelector("#review-form");
+let finalizacionSesion = false;
+let sesionRechazada = false;
+sessionStorage.setItem('mode','CLIENT');
 (() => {mainChat()})();
 
 
 async function mainChat(){
-
     await iniciarWebsockets();
 }
 
@@ -42,17 +44,41 @@ async function iniciarWebsockets(){
             $('.loader-wrapper').removeClass("active");
             sessionStorage.setItem('sessionChat',data.sessionChat.id)
         }else{
-
+            $('.loader-wrapper').removeClass("active");
+            finalizacionSesion = true;
+            let timerInterval
+            Swal.fire({
+            title: 'Asesor no disponible',
+            html: 'Lo sentimos el asesor no se encuentra disponible en este momento.',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.href = `/dashboard-consultor/buscar-asesor`;
+            }
+            })
         }
     });
 
     salaChat.on('recibirMensaje', ({data}) => {
         const {
             frase,
+            tipo,
             id_consultor,
             fecha_envio,
         } = data.mensaje;
-        agregarMensajes(frase,null,id_consultor,fecha_envio);
+        agregarMensajes(frase,null,id_consultor,fecha_envio,tipo);
         chatAudio.play();
     });
 
@@ -62,27 +88,38 @@ async function iniciarWebsockets(){
         $('#send-msg-btn').prop("disabled", false);
         const {
             frase,
+            tipo,
             id_cliente,
             fecha_envio,
         } = data.mensaje;
-        agregarMensajes(frase,id_cliente,null,fecha_envio);
+        if(tipo == 2){
+            $('.upload-img-layout').removeClass("active");
+            $('#btn-send-img').removeClass("loading");
+            $('#btn-send-img span:last-child').text("ENVIAR");
+            $('#btn-send-img').prop("disabled", false);
+            $('.dropify-clear').click();
+        }
+        agregarMensajes(frase,id_cliente,null,fecha_envio,tipo);
     });
 
     salaChat.on('finalizoSesion',async (data) => {
+        finalizacionSesion = true;
         Swal.fire({
 			icon: 'warning',
 			title: 'Chat finalizado',
 			text: `La conversación finalizó`
 		});
+        $('.rate-modal').addClass('active');
     })
 
 
     window.addEventListener("beforeunload", function (e) {
-
-        salaChat.emit('iniciarFinalizacionChat', {
-            finalizadoAdvicer: false,
-            finalizadoCliente: true
-        });
+        if( finalizacionSesion == false ){
+            salaChat.emit('iniciarFinalizacionChat', {
+                finalizadoAdvicer: false,
+                finalizadoCliente: true
+            });
+        }
     });
 
 
@@ -94,14 +131,86 @@ async function iniciarWebsockets(){
         });
 	});
 
+    $('#btn-send-img').click(async function (e) {
+        e.preventDefault();
+        const image = $('#upload-img-input')[0].files[0];
+        if (typeof image === "undefined") {
+            notificacion("#upload-img-input", "Selecciona una imagen", "#upload-img-input", "bottom center", "error");
+        } else {
+            $('#btn-send-img').addClass("loading");
+            $('#btn-send-img span:last-child').text("Enviando...");
+            $('#btn-send-img').prop("disabled", true);
+            const enviarMensajeFunc = (resultImg) => {
+                // console.log(resultImg);
+                const request = {
+                    token : sessionStorage.getItem('token'),
+                    adviserSelected : adviserSelected,
+                    tipo :2,
+                    mensaje: null,
+                    archivo : resultImg,
+                    sessionChat : sessionStorage.getItem('sessionChat')
+                }
 
-    buttonEnvioChat.addEventListener('click',async (e) => {
+                salaChat.emit("enviarMensajeDesdeConsultor",{
+                    ...request
+                });
+            }
+            getBase64(image,enviarMensajeFunc);
+        }
+    });
+
+
+
+    formCalificacion.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const rateSelected = $('input[name=rate]:checked').val();
+	    const comment = $('#comment').val();
+        const request = {
+            rateSelected,
+            comment,
+            token: sessionStorage.getItem('token'),
+            sessionChat: sessionStorage.getItem('sessionChat')
+        }
+        salaChat.emit('calificarSesion',{...request});
+    })
+
+    salaChat.on('calificacionEstado',(data) => {
+        $('.rate-modal').removeClass('active');
+        let timerInterval
+            Swal.fire({
+            title: 'Calificación realizada',
+            html: 'Mejoramos gracias a tus comentarios, muchas gracias!.',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.href = `/dashboard-consultor/buscar-asesor`;
+            }
+            })
+    });
+
+
+
+
+    buttonEnvioChat.addEventListener('click', (e) => {
         e.preventDefault();
         const inputMensaje = document.querySelector('#msg-input');
         const parameters = {
             mensaje: inputMensaje.value,
             token: sessionStorage.getItem('token'),
             adviserSelected,
+            tipo :1,
             sessionChat: sessionStorage.getItem('sessionChat')
         };
         salaChat.emit("enviarMensajeDesdeConsultor",{

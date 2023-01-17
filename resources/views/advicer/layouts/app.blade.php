@@ -56,13 +56,13 @@
     <script src="https://unpkg.com/regenerator-runtime@0.13.9/runtime.js"></script>
     <script src="https://unpkg.com/@adonisjs/websocket-client"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{url('libs/sweetalert2/sweetalert2.all.min.js')}}"></script>
     <script src="{{asset('js/chat/chat-manipulacion.js')}}"></script>
     <script src="{{asset('js/chat/chat-advicer.js')}}"></script>
 	<script src="{{url("js/general-functions.js")}}"></script>
 	{{-- <script src="{{url('libs/printJS/print.min.js')}}"></script> --}}
 	<script src="{{url('libs/notify/notify.min.js')}}"></script>
-	<script src="{{url('libs/sweetalert2/sweetalert2.all.min.js')}}"></script>
+
 	<script src="https://www.google.com/recaptcha/api.js?render=6Lfhl9IZAAAAAA5iSF520_ou02EL2zI6xVgxUQm7"></script>
 	<script src="{{url("libs/owl-carousel/owl.carousel.min.js")}}"></script>
 	<script src="{{url("libs/pagination/pagination.min.js")}}"></script>

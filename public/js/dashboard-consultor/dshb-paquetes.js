@@ -266,29 +266,29 @@ $(".btn-close-modal").click(function (e) {
 });
 
 console.log("hola")
-getPackages()
-	.then((sRes) => {
-		sRes["msg"].forEach((package) => {
-            console.log("hola")
-			$("#mc-paquetes-box")
-				.append(`<span>
-					<img src="${package.image}" alt="img paquetes">
-					<a style="right: auto !important; bottom: 20px !important;" href="#" class="btn-comprar-w" data-package-id="${package.id}" onclick="getWompiData(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>comprar</a>
-				</span>`);
-			// .append(`<span>
-			// 	<img src="${package.image}" alt="img paquetes">
-			// 	<a href="#" class="btn-comprar-p" data-package-id="${package.id}" onclick="buyPackage(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>PayPal</a>
-			// 	<a href="#" class="btn-comprar-w" data-package-id="${package.id}" onclick="getWompiData(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>comprar</a>
-			// </span>`);
-		});
-	})
-	.catch((error) => {
-		Swal.fire({
-			icon: "error",
-			title: "Oops...",
-			text: error,
-		});
-	});
+// getPackages()
+// 	.then((sRes) => {
+// 		sRes["msg"].forEach((package) => {
+//             console.log("hola")
+// 			$("#mc-paquetes-box")
+// 				.append(`<span>
+// 					<img src="${package.image}" alt="img paquetes">
+// 					<a style="right: auto !important; bottom: 20px !important;" href="#" class="btn-comprar-w" data-package-id="${package.id}" onclick="getWompiData(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>comprar</a>
+// 				</span>`);
+// 			// .append(`<span>
+// 			// 	<img src="${package.image}" alt="img paquetes">
+// 			// 	<a href="#" class="btn-comprar-p" data-package-id="${package.id}" onclick="buyPackage(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>PayPal</a>
+// 			// 	<a href="#" class="btn-comprar-w" data-package-id="${package.id}" onclick="getWompiData(event, this); return gtag_report_conversion('')" data-package-id="${package.product_pk}" data-package-cost="${package.cost}"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>comprar</a>
+// 			// </span>`);
+// 		});
+// 	})
+// 	.catch((error) => {
+// 		// Swal.fire({
+// 		// 	icon: "error",
+// 		// 	title: "Oops...",
+// 		// 	text: error,
+// 		// });
+// 	});
 
 $(".actual-balance-container span").text(
 	`$${parseFloat(user.total_amount_purchases)}`

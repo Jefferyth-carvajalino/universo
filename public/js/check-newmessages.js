@@ -52,7 +52,7 @@ $.ajax({
 
 }).always(function () {
 	setTimeout(() => {
-		verifyIncomingMsgs();
+		// verifyIncomingMsgs();
 
 	}, 1000);
 });

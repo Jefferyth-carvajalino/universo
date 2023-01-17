@@ -1,6 +1,7 @@
 const buttonEnvioChat = document.querySelector('#send-msg-btn');
 const userAdvicer = JSON.parse(localStorage.getItem('user'));
 const chatAudio = document.getElementById('chat-audio');
+sessionStorage.setItem('mode','ADVICER');
 (() => {mainChat()})();
 async function mainChat(){
     const pathname = window.location.pathname;
@@ -29,13 +30,13 @@ async function webSocketsAlways(){
     // console.log(userAdvicer)
     const salaChat = ws.subscribe(`chat:advicer-${userAdvicer.id}`);
 
+    let newVideo = document.getElementById('new-chat-audio');
+        newVideo.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+    }, false);
     salaChat.on('esperandoSolicitud', (data) => {
         // document.querySelector("#new-chat-audio").play();
-        var newVideo = document.getElementById('new-chat-audio');
-            newVideo.addEventListener('ended', function() {
-                this.currentTime = 0;
-                this.play();
-            }, false);
 
         newVideo.play();
 
@@ -56,6 +57,8 @@ async function webSocketsAlways(){
         sessionStorage.removeItem('userRequest');
         sessionStorage.removeItem('userRequest_chat');
         $('.new-conversation-modal').removeClass("active");
+        newVideo.pause();
+        newVideo.currentTime = 0;
         salaChat.emit("responderSolicitud",{
             asesorAcepto: false,
         });
@@ -68,8 +71,6 @@ async function webSocketsAlways(){
 async function iniciarChatWebsockets(){
 
     // ABRIR VENTANA DE ESPERA
-    console.log("hola");
-
     $('.loader-wrapper').addClass("active");
     // TRAER HISTORIAL DE MENSAJES
     const mensajes = await getMessages();
@@ -99,6 +100,19 @@ async function iniciarChatWebsockets(){
         customerSelected
     });
 
+    const parameters = {
+        mensaje: `Hola, soy ${userAdvicer.nickname}. ¿En qué puedo ayudarte?`,
+        token: sessionStorage.getItem('token'),
+        customerSelected,
+        tipo :1,
+        sessionChat: sessionStorage.getItem('sessionChat')
+    };
+
+-    // MENSAJE AUTOMATICO
+    salaChat.emit("enviarMensajeDesdeAdvicer",{
+        ...parameters
+    });
+
 
     salaChat.on('respuestaAsesor', (data) => {
         if(data.asesorAcepto){
@@ -106,45 +120,71 @@ async function iniciarChatWebsockets(){
         }
     });
 
-    salaChat.on('recibirMensaje', (data) => {
-
-    });
 
     salaChat.on('mensajeEnviado', ({data}) => {
         $('#send-msg-btn').removeClass("loading");
         $('#send-msg-btn').prop("disabled", false);
         const {
             frase,
+            tipo,
             id_consultor,
             fecha_envio,
         } = data.mensaje;
-        agregarMensajes(frase,null,id_consultor,fecha_envio);
+        if(tipo == 2){
+            $('.upload-img-layout').removeClass("active");
+            $('#btn-send-img').removeClass("loading");
+            $('#btn-send-img span:last-child').text("ENVIAR");
+            $('#btn-send-img').prop("disabled", false);
+            $('.dropify-clear').click();
+        }
+
+        agregarMensajes(frase,null,id_consultor,fecha_envio,tipo);
     });
 
     salaChat.on('recibirMensaje', ({data}) => {
         const {
             frase,
+            tipo,
             id_cliente,
             fecha_envio,
         } = data.mensaje;
-        agregarMensajes(frase,id_cliente,null,fecha_envio);
+        console.log(data.mensaje)
+        agregarMensajes(frase,id_cliente,null,fecha_envio,tipo);
         chatAudio.play();
     });
 
 
     salaChat.on('finalizoSesion',async (data) => {
-        console.log(data);
         salaChat.emit('actualizarDuracionChat',{
             sessionChat: sessionStorage.getItem('sessionChat'),
             token: sessionStorage.getItem('token'),
             duracion: getDuracionActual()
         });
 
-        Swal.fire({
-			icon: 'warning',
-			title: 'Chat finalizado',
-			text: `La conversación finalizó`
-		});
+        let timerInterval
+            Swal.fire({
+            title: 'Chat finalizado',
+            html: 'La conversación finalizó',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.href = `/dashboard-especialista/perfil`;
+            }
+            })
+
+
 
     })
 
@@ -159,6 +199,39 @@ async function iniciarChatWebsockets(){
     runTimer();
 
 
+    $('#btn-send-img').click(async function (e) {
+        e.preventDefault();
+        const image = $('#upload-img-input')[0].files[0];
+        if (typeof image === "undefined") {
+            notificacion("#upload-img-input", "Selecciona una imagen", "#upload-img-input", "bottom center", "error");
+        } else {
+            $('#btn-send-img').addClass("loading");
+            $('#btn-send-img span:last-child').text("Enviando...");
+            $('#btn-send-img').prop("disabled", true);
+            const enviarMensajeFunc = (resultImg) => {
+                // console.log(resultImg);
+                const request = {
+                    token : sessionStorage.getItem('token'),
+                    customerSelected : customerSelected,
+                    tipo :2,
+                    mensaje: null,
+                    archivo : resultImg,
+                    sessionChat : sessionStorage.getItem('sessionChat')
+                }
+
+                salaChat.emit("enviarMensajeDesdeAdvicer",{
+                    ...request
+                });
+            }
+            getBase64(image,enviarMensajeFunc);
+
+            // console.log(true);
+            // salaChat.emit("enviarMensajeDesdeConsultor",{...request});
+            // AL RECIBIR LA IMAGEN
+        }
+    });
+
+
 
     buttonEnvioChat.addEventListener('click',async (e) => {
         e.preventDefault();
@@ -167,6 +240,7 @@ async function iniciarChatWebsockets(){
             mensaje: inputMensaje.value,
             token: sessionStorage.getItem('token'),
             customerSelected,
+            tipo :1,
             sessionChat: sessionStorage.getItem('sessionChat')
         };
 
