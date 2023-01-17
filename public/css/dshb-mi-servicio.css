@@ -652,3 +652,40 @@
 .content-image-serv img {
     width: 10%;
 }
+
+.popup.showing {
+    display: flex !important;
+}
+
+.popup-content-send-serv {
+    width: 80%;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.popup-content-send-serv input {
+    padding: 50px;
+}
+
+.popup-content-send-serv h2 {
+    color: #00e5e5;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+.popup-content-send-serv a {
+    padding: 5px 10px;
+    background-color: #00e5e5;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+}

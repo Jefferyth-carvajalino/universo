@@ -4,8 +4,6 @@
     "sources": [
         "../scss/dshb-perfil-especialista.sass",
         "../scss/layout/_dashboard.sass",
-        "../scss/base/_page-reset.sass",
-        "../scss/defaults/_mixins.sass",
         "../scss/base/_typography.sass",
         "../scss/base/_constants.sass",
         "../scss/layout/_header.sass",

@@ -1,7 +1,7 @@
 @extends('customer.layouts.app')
 @push('styles_header')
     <link rel="stylesheet" href="{{asset('css/dash-advicer/dshb-perfil-especialista.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/dash-customer/dshb-buscar-asesor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dshb-buscar-asesor.css')}}">
 @endpush
 @section('page')
 Mis Compras
