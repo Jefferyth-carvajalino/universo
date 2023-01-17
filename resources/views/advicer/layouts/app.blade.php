@@ -6,6 +6,16 @@
 	<title>Universo Psiquico - @yield('page')</title>
 
 	<link rel="stylesheet" href="{{asset('libs/dropify/css/dropify.min.css')}}">
+	<link rel="stylesheet" href="{{url('libs/owl-carousel/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{url('libs/owl-carousel/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" href="{{url('libs/pagination/pagination.min.css')}}">
+	<link rel="manifest" href="{{url('/manifest.json')}}">
+	{{-- <link rel="stylesheet" href="{{url('libs/printJS/print.min.css')}}"> --}}
+	<link rel="stylesheet" href="{{url('css/header.css')}}">
+	<link rel="stylesheet" href="{{url('css/footer.css')}}">
+	<link rel="stylesheet" href="{{url('css/_page-reset.css')}}">
+	<link rel="stylesheet" href="{{url('css/general-style.css')}}">
+	<link rel="stylesheet" href="{{url('css/my-components/_advisers-list.css')}}">
     @stack('styles_header')
 
 	<!-- Global site tag (gtag.js) - Google Ads: 1003325170 -->
@@ -49,6 +59,20 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('js/chat/chat-manipulacion.js')}}"></script>
     <script src="{{asset('js/chat/chat-advicer.js')}}"></script>
+	<script src="{{url("js/general-functions.js")}}"></script>
+	{{-- <script src="{{url('libs/printJS/print.min.js')}}"></script> --}}
+	<script src="{{url('libs/notify/notify.min.js')}}"></script>
+	<script src="{{url('libs/sweetalert2/sweetalert2.all.min.js')}}"></script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6Lfhl9IZAAAAAA5iSF520_ou02EL2zI6xVgxUQm7"></script>
+	<script src="{{url("libs/owl-carousel/owl.carousel.min.js")}}"></script>
+	<script src="{{url("libs/pagination/pagination.min.js")}}"></script>
+	<script src="{{url('js/index-script.js')}}"></script>
+    <script src="{{url('js/app.js')}}"></script>
+	<script src="{{url('js/commons-script.js')}}"></script>
+	<script>
+		let url = "{{url('')}}";
+	</script>
+	@stack('page_scripts')
     @stack('scripts_footer')
 
 </body>
