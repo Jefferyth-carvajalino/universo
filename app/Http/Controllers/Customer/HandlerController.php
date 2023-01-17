@@ -49,4 +49,10 @@ class HandlerController extends Controller
 		$backpack = [];
 		return view('customer.viewChat.index', $backpack);
 	}
+
+	public function servicios()
+	{
+		$backpack = [];
+		return view('customer.viewMisServicios.index', $backpack);
+	}
 }

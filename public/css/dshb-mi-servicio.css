@@ -636,8 +636,19 @@
     padding: 4px 15px;
     border-radius: 20px;
     background-color: #00e5e5;
-	text-decoration: none;
+    text-decoration: none;
     font-weight: bold;
     color: #ffffff !important;
     font-size: 20px !important;
+}
+
+.content-image-serv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-image-serv img {
+    width: 10%;
 }
