@@ -1,5 +1,7 @@
 const buttonEnvioChat = document.querySelector('#send-msg-btn');
 const userCustomer = JSON.parse(localStorage.getItem('user'));
+const chatAudio = document.getElementById('chat-audio');
+let finalizacionChat = false;
 (() => {mainChat()})();
 
 
@@ -26,25 +28,19 @@ async function iniciarWebsockets(){
 
     let isConnected = false
 
-    ws.on('open', () => {
-        isConnected = true
-    });
-
-    ws.on('close', () => {
-        isConnected = false
-    });
 
 
     const salaChat = ws.subscribe(`chat:advicer-${adviserSelected}`);
     salaChat.emit('solicitarAsesor', {
         customer: userCustomer.id,
+        chat_main: mensajes.chat.id,
         dataCustomer: {...userCustomer}
     });
 
     salaChat.on('respuestaAsesor', (data) => {
-        console.log(data);
-        if(data){
+        if(data.asesorAcepto){
             $('.loader-wrapper').removeClass("active");
+            sessionStorage.setItem('sessionChat',data.sessionChat.id)
         }else{
 
         }
@@ -57,6 +53,7 @@ async function iniciarWebsockets(){
             fecha_envio,
         } = data.mensaje;
         agregarMensajes(frase,null,id_consultor,fecha_envio);
+        chatAudio.play();
     });
 
 
@@ -71,17 +68,42 @@ async function iniciarWebsockets(){
         agregarMensajes(frase,id_cliente,null,fecha_envio);
     });
 
+    salaChat.on('finalizoSesion',async (data) => {
+        Swal.fire({
+			icon: 'warning',
+			title: 'Chat finalizado',
+			text: `La conversación finalizó`
+		});
+    })
+
+
+    window.addEventListener("beforeunload", function (e) {
+
+        salaChat.emit('iniciarFinalizacionChat', {
+            finalizadoAdvicer: false,
+            finalizadoCliente: true
+        });
+    });
+
+
+    $('#finish-chat').click(async function (e) {
+		e.preventDefault();
+        salaChat.emit('iniciarFinalizacionChat', {
+            finalizadoAdvicer: false,
+            finalizadoCliente: true
+        });
+	});
+
 
     buttonEnvioChat.addEventListener('click',async (e) => {
         e.preventDefault();
-
         const inputMensaje = document.querySelector('#msg-input');
         const parameters = {
             mensaje: inputMensaje.value,
             token: sessionStorage.getItem('token'),
-            adviserSelected
+            adviserSelected,
+            sessionChat: sessionStorage.getItem('sessionChat')
         };
-
         salaChat.emit("enviarMensajeDesdeConsultor",{
            ...parameters
         });

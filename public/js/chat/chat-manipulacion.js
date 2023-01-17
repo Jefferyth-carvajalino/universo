@@ -1,3 +1,7 @@
+let timerTimeout = null;
+let timerHours = 0;
+let timerMinutes = 0;
+let timerSeconds = 0;
 function agregarMensajes(message,isCliente,isConsultor,date){
     // console.log(isCliente,isConsultor)
     isCliente = !!isCliente;
@@ -43,4 +47,48 @@ function renderOldMessages(oldMessages) {
 		}
 		agregarMensajes(message['frase'],message['id_cliente'],message['id_consultor'],message['fecha_envio']);
 	});
+}
+
+
+function runTimer() {
+	timerTimeout = setTimeout(() => {
+		if (((timerSeconds + 1) === 15) || ((timerSeconds + 1) === 30) || ((timerSeconds + 1) === 45) || ((timerSeconds + 1) === 60)) {
+			if ((timerSeconds + 1) === 60) {
+				if ((timerMinutes + 1) === 60) {
+					timerHours += 1;
+					timerMinutes = 0;
+
+				} else {
+					timerMinutes += 1;
+				}
+
+				timerSeconds = 0;
+			} else {
+				timerSeconds++;
+			}
+
+			// updateBalances(timerMinutes);
+
+		} else {
+			timerSeconds += 1;
+		}
+		// if (chatId) {
+			// updateDurationTime({ chatId });
+			renderTimer();
+		// }
+	}, 1000);
+}
+
+function renderTimer() {
+	$('#timer-hours').text((timerHours < 10) ? `0${timerHours}` : timerHours);
+	$('#timer-minutes').text((timerMinutes < 10) ? `0${timerMinutes}` : timerMinutes);
+	$('#timer-seconds').text((timerSeconds < 10) ? `0${timerSeconds}` : timerSeconds);
+	if (timerTimeout) {
+		runTimer();
+	}
+}
+
+
+function getDuracionActual(){
+    return $('#timer-hours').text() +":" +  $('#timer-minutes').text()+":"+$('#timer-seconds').text();
 }

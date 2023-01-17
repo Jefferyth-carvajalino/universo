@@ -1,9 +1,11 @@
 const buttonEnvioChat = document.querySelector('#send-msg-btn');
 const userAdvicer = JSON.parse(localStorage.getItem('user'));
+const chatAudio = document.getElementById('chat-audio');
 (() => {mainChat()})();
 async function mainChat(){
     const pathname = window.location.pathname;
-    if(pathname.includes('chat?customer=')){
+    console.log(pathname.includes('chat'),pathname);
+    if(pathname.includes('chat')){
         await iniciarChatWebsockets();
     }else{
         await webSocketsAlways();
@@ -29,15 +31,16 @@ async function webSocketsAlways(){
 
     salaChat.on('esperandoSolicitud', (data) => {
         // document.querySelector("#new-chat-audio").play();
-        // var newVideo = document.getElementById('new-chat-audio');
-        //     newVideo.addEventListener('ended', function() {
-        //         this.currentTime = 0;
-        //         this.play();
-        //     }, false);
+        var newVideo = document.getElementById('new-chat-audio');
+            newVideo.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
 
-        // newVideo.play();
+        newVideo.play();
 
-        localStorage.setItem('userRequest',JSON.stringify(data.dataCustomer));
+        sessionStorage.setItem('userRequest',JSON.stringify(data.dataCustomer));
+        sessionStorage.setItem('userRequest_chat',JSON.stringify(data.chat_main));
         $('.new-conversation-modal').addClass("active");
         $('#new-conversation-msg').text(`${data.dataCustomer.name} desea iniciar una conversación contigo.`);
     });
@@ -45,14 +48,17 @@ async function webSocketsAlways(){
     $('#btn-accept').click(function (e) {
         e.preventDefault();
         const userRequest = JSON.parse(localStorage.getItem('userRequest'));
-        localStorage.removeItem('userRequest');
+        sessionStorage.removeItem('userRequest');
         window.location.href = `/dashboard-especialista/chat?customer=${userRequest.id}`;
     });
     $('#btn-deny').click(function (e) {
         e.preventDefault();
-        localStorage.removeItem('userRequest');
+        sessionStorage.removeItem('userRequest');
+        sessionStorage.removeItem('userRequest_chat');
         $('.new-conversation-modal').removeClass("active");
-        salaChat.emit("responderSolicitud",false);
+        salaChat.emit("responderSolicitud",{
+            asesorAcepto: false,
+        });
     });
 
 
@@ -62,6 +68,7 @@ async function webSocketsAlways(){
 async function iniciarChatWebsockets(){
 
     // ABRIR VENTANA DE ESPERA
+    console.log("hola");
 
     $('.loader-wrapper').addClass("active");
     // TRAER HISTORIAL DE MENSAJES
@@ -84,10 +91,20 @@ async function iniciarChatWebsockets(){
         isConnected = false
     });
 
-    console.log(userAdvicer);
     const salaChat = ws.subscribe(`chat:advicer-${userAdvicer.id}`);
-    console.log("hola")
-    salaChat.emit("responderSolicitud",true);
+    salaChat.emit("responderSolicitud",{
+        token: sessionStorage.getItem('token'),
+        asesorAcepto: true,
+        chat_main: sessionStorage.getItem('userRequest_chat'),
+        customerSelected
+    });
+
+
+    salaChat.on('respuestaAsesor', (data) => {
+        if(data.asesorAcepto){
+            sessionStorage.setItem('sessionChat',data.sessionChat.id)
+        }
+    });
 
     salaChat.on('recibirMensaje', (data) => {
 
@@ -111,7 +128,36 @@ async function iniciarChatWebsockets(){
             fecha_envio,
         } = data.mensaje;
         agregarMensajes(frase,id_cliente,null,fecha_envio);
+        chatAudio.play();
     });
+
+
+    salaChat.on('finalizoSesion',async (data) => {
+        console.log(data);
+        salaChat.emit('actualizarDuracionChat',{
+            sessionChat: sessionStorage.getItem('sessionChat'),
+            token: sessionStorage.getItem('token'),
+            duracion: getDuracionActual()
+        });
+
+        Swal.fire({
+			icon: 'warning',
+			title: 'Chat finalizado',
+			text: `La conversación finalizó`
+		});
+
+    })
+
+    $('#finish-chat').click(async function (e) {
+		e.preventDefault();
+        salaChat.emit('iniciarFinalizacionChat', {
+            finalizadoAdvicer: true,
+            finalizadoCliente: false
+        });
+	});
+
+    runTimer();
+
 
 
     buttonEnvioChat.addEventListener('click',async (e) => {
@@ -120,7 +166,8 @@ async function iniciarChatWebsockets(){
         const parameters = {
             mensaje: inputMensaje.value,
             token: sessionStorage.getItem('token'),
-            customerSelected
+            customerSelected,
+            sessionChat: sessionStorage.getItem('sessionChat')
         };
 
         salaChat.emit("enviarMensajeDesdeAdvicer",{

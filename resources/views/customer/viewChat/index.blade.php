@@ -211,6 +211,7 @@ Perfil
     <script src="https://unpkg.com/regenerator-runtime@0.13.9/runtime.js"></script>
     <script src="https://unpkg.com/@adonisjs/websocket-client"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <script src="{{asset('js/chat/chat-manipulacion.js')}}"></script>
     <script type="text/babel" src="{{asset('js/chat/chat-cliente.js')}}"></script>
 @endpush
